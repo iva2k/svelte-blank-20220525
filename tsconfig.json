@@ -9,10 +9,12 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
+    "outDir": ".types",
     "paths": {
       "$app/*": [".svelte-kit/runtime/app/*"],
       "$lib": ["src/lib"],
       "$lib/*": ["src/lib/*"]
     }
-  }
+  },
+  "exclude": ["./node_modules/**", ".svelte-kit/**", ".types"]
 }
