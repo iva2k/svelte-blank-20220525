@@ -11,7 +11,9 @@
     "strict": true,
     "paths": {
       "$app": ["./.svelte-kit/runtime/app"],
-      "$app/*": ["./.svelte-kit/runtime/app/*"]
+      "$app/*": ["./.svelte-kit/runtime/app/*"],
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
     }
   }
 }
