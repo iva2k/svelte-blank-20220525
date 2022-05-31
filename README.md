@@ -1,8 +1,16 @@
-# Blank Svelte App + Tauri + Prettier + ESLint
+# Blank Svelte Kit App + Tauri + Prettier + ESLint
+
+> A cross-platform Desktop application starter
+
+Built with:
+
+- [Svelte](https://svelte.dev) – UI framework
+- [Svelte Kit](https://kit.svelte.dev) – UI build system
+- [Tauri](https://tauri.studio) – Desktop Application framework
 
 ## create-svelte
 
-Built by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Svelte scaffolding is set up by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
 ```bash
 # create a new project in my-app
@@ -12,7 +20,13 @@ pnpm install
 git init && git add -A && git commit -m "Initial commit" (optional)
 ```
 
-## Developing
+## Developing Locally
+
+Please follow the [Tauri Getting Started Guide](https://tauri.studio/en/docs/getting-started/intro#steps) to setup your system with the Rust toolchain.
+
+This application is built like a typical Node.js application – however, instead of `npm`, [`pnpm`](https://pnpm.io/) is used for package management.
+
+> **Note:** You may use `yarn` or `npm`, but only a `pnpm` lockfile is included.
 
 Start a development server:
 
