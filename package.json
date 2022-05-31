@@ -2,8 +2,11 @@
   "name": "svelte-blank-20220525",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "svelte:dev": "svelte-kit dev --port 3000",
+    "svelte:build": "svelte-kit build",
+    "tauri": "tauri",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "prepare": "svelte-kit sync",
@@ -11,7 +14,8 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
-    "format": "prettier --write --plugin-search-dir=. ."
+    "format": "prettier --write --plugin-search-dir=. .",
+    "all": "pnpm run prepare && pnpm run format && pnpm run lint && pnpm run svelte:build && pnpm run build && pnpm run package && pnpm run test && pnpm run check"
   },
   "dependencies": {
     "@fontsource/fira-mono": "^4.5.0",
@@ -20,7 +24,10 @@
   "devDependencies": {
     "@playwright/test": "^1.21.0",
     "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "1.0.0-next.34",
     "@sveltejs/kit": "next",
+    "@tauri-apps/api": "1.0.0-rc.6",
+    "@tauri-apps/cli": "1.0.0-rc.13",
     "@types/cookie": "^0.4.1",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
@@ -32,7 +39,7 @@
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.5.0",
     "svelte": "^3.46.0",
-    "svelte-check": "^2.2.6",
+    "svelte-check": "^2.7.1",
     "svelte-preprocess": "^4.10.1",
     "svelte2tsx": "^0.5.10",
     "tslib": "^2.3.1",
@@ -41,6 +48,11 @@
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=18.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@sveltejs/kit": "../sveltejs-kit/packages/kit"
+    }
   },
   "type": "module"
 }

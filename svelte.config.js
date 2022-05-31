@@ -1,5 +1,7 @@
-import adapter from '@sveltejs/adapter-auto';
+// import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
+// import { resolve } from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,6 +15,11 @@ const config = {
     // Override http methods in the Todo forms
     methodOverride: {
       allowed: ['PATCH', 'DELETE']
+    },
+
+    alias: {
+      // Place to add all aliases. Run 'svelte-kit sync' (or npm run prepare) to update paths in .svelte-kit/tsconfig.json
+      // $components: resolve('./src/lib/components')
     }
   }
 };
