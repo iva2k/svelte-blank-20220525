@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.iva2k.svelte-blank-20220525",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

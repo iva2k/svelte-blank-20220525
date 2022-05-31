@@ -1,4 +1,4 @@
-# Blank Svelte App
+# Blank Svelte App + Tauri
 
 ## create-svelte
 
@@ -168,10 +168,10 @@ Add scripts to package.json:
 ```bash
 pnpm run tauri init
 # Use ../build for "Where are your web assets (HTML/CSS/JS) located"
-# What is your app name? � svelte-blank-20220525
-# What should the window title be? � svelte-blank-20220525
-# Where are your web assets (HTML/CSS/JS) located, relative to the "<current dir>/src-tauri/tauri.conf.json" file that will be created? � ../build
-# What is the url of your dev server? � http://localhost:3000
+# What is your app name? - svelte-blank-20220525
+# What should the window title be? - svelte-blank-20220525
+# Where are your web assets (HTML/CSS/JS) located, relative to the "<current dir>/src-tauri/tauri.conf.json" file that will be created? - ../build
+# What is the url of your dev server? - http://localhost:3000
 ```
 
 Add `ssr:false` to `src/hooks.ts`:
@@ -185,4 +185,19 @@ export const handle: Handle = async ({ event, resolve }) => {
 +  });
   return response;
 };
+```
+
+Change bundle identifier (to remove the issue "Error You must change the bundle identifier in `tauri.conf.json > tauri > bundle > identifier`. The default value `com.tauri.dev` is not allowed as it must be unique across applications.")
+
+```json
+// src-tauri/tauri.conf.json
+{
+  ...
+  "tauri": {
+    ...
+    "bundle": {
+      ...
+-      "identifier": "com.tauri.dev",
++      "identifier": "com.iva2k.svelte-blank-20220525",
+      ...
 ```
