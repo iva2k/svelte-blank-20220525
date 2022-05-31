@@ -16,5 +16,5 @@
       "$lib/*": ["src/lib/*"]
     }
   },
-  "exclude": ["./node_modules/**", ".svelte-kit/**", ".types"]
+  "exclude": ["./node_modules/**", ".svelte-kit/**", ".types", "./src-tauri/target/**"]
 }

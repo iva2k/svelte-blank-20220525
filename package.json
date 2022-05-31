@@ -6,16 +6,16 @@
     "build": "tauri build",
     "svelte:dev": "svelte-kit dev --port 3000",
     "svelte:build": "svelte-kit build",
-    "tauri": "tauri",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "prepare": "svelte-kit sync",
+    "tauri": "tauri",
     "test": "playwright test",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "format": "prettier --write --plugin-search-dir=. .",
-    "all": "pnpm run prepare && pnpm run format && pnpm run lint && pnpm run svelte:build && pnpm run build && pnpm run package && pnpm run test && pnpm run check"
+    "all": "pnpm i && pnpm run prepare && pnpm run format && pnpm run lint && pnpm run svelte:build && pnpm run build && pnpm run package && pnpm run test && pnpm run check"
   },
   "dependencies": {
     "@fontsource/fira-mono": "^4.5.0",
@@ -38,7 +38,7 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.5.0",
-    "svelte": "^3.46.0",
+    "svelte": "^3.48.0",
     "svelte-check": "^2.7.1",
     "svelte-preprocess": "^4.10.1",
     "svelte2tsx": "^0.5.10",
@@ -48,11 +48,6 @@
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=18.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@sveltejs/kit": "../sveltejs-kit/packages/kit"
-    }
   },
   "type": "module"
 }

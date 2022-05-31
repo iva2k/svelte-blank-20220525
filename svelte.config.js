@@ -10,7 +10,8 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: adapter(),
+    adapter: adapter({}),
+    // ssr: false, // For Tauri // Moved to src/hooks.ts:handle() 1.0.0-next.222
 
     // Override http methods in the Todo forms
     methodOverride: {

@@ -6,6 +6,13 @@ node_modules
 .env
 .env.*
 !.env.example
+.vercel
+.output
+.types
+log.*
+/src-tauri/target
+/src-tauri/WixTools
+/src-tauri/Cargo.lock
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml
