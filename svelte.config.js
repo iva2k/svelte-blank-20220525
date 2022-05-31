@@ -11,7 +11,11 @@ const config = {
 
   kit: {
     adapter: adapter({}),
-    // ssr: false, // For Tauri // Moved to src/hooks.ts:handle() 1.0.0-next.222
+
+    prerender: {
+      // This can be false when using a fallback (i.e. SPA mode)
+      default: true
+    },
 
     // Override http methods in the Todo forms
     methodOverride: {
