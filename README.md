@@ -7,6 +7,7 @@ Built with:
 - [Svelte](https://svelte.dev) – UI framework
 - [Svelte Kit](https://kit.svelte.dev) – UI build system
 - [Tauri](https://tauri.studio) – Desktop Application framework
+- [Storybook](https://storybook.js.org) – Tool for building UI components and pages in isolation
 
 This file describes how this app was created.
 
@@ -258,8 +259,9 @@ Change bundle identifier (to remove the issue "Error: You must change the bundle
 ### Add Storybook
 
 ```bash
-## pnpm is a bit tricky with storybook install, use `npx` with "-s" flag to skip installing dependencies.
-npx sb init -s --builder @storybook/builder-vite
+## pnpm is a bit tricky with storybook install, use `pnpx` with "-s" flag to skip installing dependencies.
+## see https://github.com/storybookjs/storybook/issues/12995#issuecomment-813630999
+pnpx sb init -s --builder @storybook/builder-vite
 pnpm install
 pnpm install -D @storybook/addon-controls @storybook/addon-docs @storybook/addon-svelte-csf
 ```
@@ -321,6 +323,27 @@ module.exports = {
 -    preprocess: require('../svelte.config.js').preprocess
 +    preprocess: preprocess(),
   },
+```
+
+#### Fix Issue #237 in @storybook/builder-vite, error looking for @mdx-js/react package
+
+```js
+// .storybook/main.js
++ const path = require('path');
+const preprocess = require('svelte-preprocess');
+module.exports = {
++  // Customize Vite config
++  async viteFinal(config, { configType }) {
++    // Resolve 'Error: [vite-plugin-mdx] "@mdx-js/react" must be installed'
++    // https://github.com/storybookjs/builder-vite/issues/237#issuecomment-1047819614
++    // https://github.com/storybookjs/builder-vite/issues/55
++    config.root = path.dirname(require.resolve('@storybook/builder-vite'));
++
++    return config;
++  },
++
+   ...
+};
 ```
 
 #### Node version
