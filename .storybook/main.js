@@ -7,13 +7,13 @@ module.exports = {
   ],
   framework: '@storybook/svelte',
   core: {
-    disableTelemetry: true, // 👈 Disables telemetry
-    builder: '@storybook/builder-vite'
+    builder: '@storybook/builder-vite',
+    disableTelemetry: true,
   },
   svelteOptions: {
     preprocess: require('../svelte.config.js').preprocess
   },
   features: {
-    storyStoreV7: true
+    storyStoreV7: true // Enable on-demand stories loading/ Not loading .stories.svelte in storybook v6.5.3
   }
 };

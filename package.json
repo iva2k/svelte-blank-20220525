@@ -16,9 +16,9 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "format": "prettier --write --plugin-search-dir=. .",
-    "all": "pnpm i && pnpm run format && pnpm run lint && pnpm tauri info && pnpm run svelte:build && pnpm run build && pnpm run package && pnpm run test && pnpm run check",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "all": "pnpm i && pnpm run format && pnpm run lint && pnpm tauri info && pnpm run svelte:build && pnpm run build && pnpm run package && pnpm run test && pnpm run check",
   },
   "dependencies": {
     "@fontsource/fira-mono": "^4.5.0",
