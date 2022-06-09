@@ -275,6 +275,8 @@ pnpm i -D @storybook/components @storybook/core-events @storybook/theming
 pnpm i -D  react@^17.0.0 react-dom@^17.0.0 @mdx-js/react @types/react@^17.0.0
 # These packages were throwing errors in "build-storybook" script:
 pnpm i -D @storybook/preview-web @storybook/addon-backgrounds @storybook/addon-measure @storybook/addon-outline @storybook/channel-postmessage @storybook/channel-websocket
+# These packages fix build errors in Storybook/Vite/pnpm
+pnpm i -D @prefresh/vite @prefresh/core preact @mdx-js/preact
 ```
 
 Disable Storybook telemetry:
