@@ -106,20 +106,20 @@
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-nav a {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding: 0 1em;
-    color: var(--heading-color);
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    transition: none;
-}
-}
+    nav a {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      padding: 0 1em;
+      color: var(--heading-color);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: none;
+    }
+  }
 
   nav a {
     display: flex;
@@ -135,7 +135,8 @@ nav a {
     transition: color 0.2s linear;
   }
 
-  a:hover, a:focus {
+  a:hover,
+  a:focus {
     color: var(--accent-color);
   }
 </style>

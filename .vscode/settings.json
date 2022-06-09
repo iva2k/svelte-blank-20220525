@@ -10,9 +10,7 @@
     "source.fixAll.eslint": true,
     "source.fixAll.html": true
   },
-  "eslint.validate": [
-    "svelte"
-  ],
+  "eslint.validate": ["svelte"],
   "editor.tokenColorCustomizations": {
     "[Svelte]": {
       "textMateRules": [

@@ -109,20 +109,20 @@
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.todo {
-    display: grid;
-    grid-template-columns: 2rem 1fr 2rem;
-    grid-gap: 0.5rem;
-    align-items: center;
-    margin: 0 0 0.5rem 0;
-    padding: 0.5rem;
-    background-color: white;
-    border-radius: 8px;
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
-    transform: translate(-1px, -1px);
-    transition: none;
-}
-}
+    .todo {
+      display: grid;
+      grid-template-columns: 2rem 1fr 2rem;
+      grid-gap: 0.5rem;
+      align-items: center;
+      margin: 0 0 0.5rem 0;
+      padding: 0.5rem;
+      background-color: white;
+      border-radius: 8px;
+      filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+      transform: translate(-1px, -1px);
+      transition: none;
+    }
+  }
 
   .todo {
     display: grid;
@@ -183,12 +183,12 @@
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.delete:hover,
-  .delete:focus {
-    transition: none;
-    opacity: 1;
-}
-}
+    .delete:hover,
+    .delete:focus {
+      transition: none;
+      opacity: 1;
+    }
+  }
 
   .delete:hover,
   .delete:focus {
@@ -204,12 +204,12 @@
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.todo input:focus + .save,
-  .save:focus {
-    transition: none;
-    opacity: 1;
-}
-}
+    .todo input:focus + .save,
+    .save:focus {
+      transition: none;
+      opacity: 1;
+    }
+  }
 
   .todo input:focus + .save,
   .save:focus {

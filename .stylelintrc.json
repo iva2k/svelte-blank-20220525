@@ -1,12 +1,6 @@
 {
-  "extends": [
-    "stylelint-config-recommended",
-    "stylelint-config-html",
-    "stylelint-config-prettier"
-  ],
-  "plugins": [
-    "@ronilaukkarinen/stylelint-a11y"
-  ],
+  "extends": ["stylelint-config-recommended", "stylelint-config-html", "stylelint-config-prettier"],
+  "plugins": ["@ronilaukkarinen/stylelint-a11y"],
   "processors": [],
   "rules": {
     "a11y/media-prefers-reduced-motion": true,
@@ -24,17 +18,13 @@
     "property-no-unknown": [
       true,
       {
-        "ignoreProperties": [
-          "/^lost-/"
-        ]
+        "ignoreProperties": ["/^lost-/"]
       }
     ],
     "selector-pseudo-class-no-unknown": [
       true,
       {
-        "ignorePseudoClasses": [
-          "global"
-        ]
+        "ignorePseudoClasses": ["global"]
       }
     ],
     "at-rule-no-unknown": [
@@ -60,12 +50,7 @@
     "no-invalid-double-slash-comments": true,
     "block-no-empty": null
   },
-  "ignoreFiles": [
-    "node_modules/*",
-    "src/assets/**",
-    "build/**",
-    "src/lib/styles/normalise.css"
-  ],
+  "ignoreFiles": ["node_modules/*", "src/assets/**", "build/**", "src/lib/styles/normalise.css"],
   "defaultSeverity": "error",
   "customSyntax": "postcss-html"
 }
