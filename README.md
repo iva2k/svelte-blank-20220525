@@ -150,6 +150,12 @@ Fix:
 
 See [Remove Default Sever](#remove-default-server) below.
 
+### Issue with entry point
+
+> Cannot generate a "svelte" entry point because the "." entry in "exports" is missing. Please specify one or set a "svelte" entry point yourself
+
+TODO: Find a fix. Not clear what should be actually done.
+
 ### Issue with node-pre-gyp deprecated
 
 pnpm install
@@ -348,6 +354,8 @@ module.exports = {
 };
 ```
 
+However, error in `svelte-kit dev` remains. Still need to `pnpm install -D @mdx-js/react` package.
+
 #### Node version
 
 Note: As of 2022-0522 Node 17 and 18 have breaking changes (migrated to ssl3):
@@ -368,3 +376,16 @@ pnpm i -D cross-env
 ```
 
 TODO: When there's a fix for node>17 and storybook / webpack@4, remove `NODE_OPTIONS=--openssl-legacy-provider` from `package.json`.
+
+#### \*.stories.svelte files
+
+Another open/unresolved issue is storybook's v6.5.3 storyStoreV7=true not parsing `.stories.svelte` files. And storyStoreV7=false does not load stories at all (no filed issues). So use only `.stories.tsx` for now.
+
+<https://github.com/storybookjs/storybook/issues/16673>
+
+Finally, got Storybook working with stories (.tsx, not .svelte) for Counter and Header (after reworking Header into Header + PureHeader). However, Counter.svelte has Typescript, and Storybook chokes on it, similar to this issue:
+
+<https://stackoverflow.com/questions/70681325/storybook-vite-svelte-typescript-typescript-not-being-processed-in-st>
+
+That references a bug that has been fixed, however, I'm still getting Storybook not taking .svelte components with Typescript.
+
