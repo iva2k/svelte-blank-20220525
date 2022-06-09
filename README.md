@@ -259,8 +259,8 @@ pnpm install -D @storybook/addon-controls @storybook/addon-docs @storybook/addon
 Add peer dependencies (some may be already installed):
 
 ```baseh
-pnpm i -D vite @babel/core babel-loader @storybook/core-common @storybook/addons @storybook/api @storybook/client-api @storybook/client-logger @storybook/node-logger @storybook/components @storybook/core-events @storybook/theming
-pnpm i -D  react@^17.0.0 react-dom@^17.0.0 @types/react@^17.0.0
+pnpm i -D vite @babel/core babel-loader @storybook/core-common @storybook/addons @storybook/api @storybook/client-api @storybook/client-logger @storybook/node-logger @storybook/components @storybook/core-events @storybook/theming @storybook/preview-web
+pnpm i -D  react@^17.0.0 react-dom@^17.0.0 @mdx-js/react @types/react@^17.0.0
 ```
 
 Disable Storybook telemetry:
@@ -268,6 +268,11 @@ Disable Storybook telemetry:
 ```js
 // .storybook/main.js
 module.exports = {
+  addons: [
+     ...
++    '@storybook/addon-svelte-csf',
+     ...
+  ],
   core: {
 +    disableTelemetry: true, // 👈 Disables telemetry
   }
@@ -305,3 +310,24 @@ module.exports = {
 +    preprocess: preprocess(),
   },
 ```
+
+#### Node version
+
+Note: As of 2022-0522 Node 17 and 18 have breaking changes (migrated to ssl3):
+
+- `Error: error:0308010C:digital envelope routines::unsupported`
+- <https://github.com/webpack/webpack/issues/14532>
+- <https://github.com/storybookjs/storybook/issues/18019>
+- <https://github.com/storybookjs/storybook/issues/16555>
+
+One solution would be to use node<17.0.0 in package.json "engines" and engine-strict=true in .npmrc, however...
+
+The problem with node<17.0.0 is it breaks playwright which requires node>17. No solution to use playwrigh with node<17 yet. Argh!
+
+For all other issues, adding `cross-env NODE_OPTIONS=--openssl-legacy-provider` to all affected scripts (storybook ones) in `package.json` is the only practical solution for now (it opens up old security vulnerabilities in legacy openssl).
+
+```bash
+pnpm i -D cross-env
+```
+
+TODO: When there's a fix for node>17 and storybook / webpack@4, remove `NODE_OPTIONS=--openssl-legacy-provider` from `package.json`.

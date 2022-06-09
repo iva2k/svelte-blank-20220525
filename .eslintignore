@@ -10,6 +10,7 @@ node_modules
 .output
 .types
 log.*
+/storybook-static
 /src-tauri/target
 /src-tauri/WixTools
 /src-tauri/Cargo.lock

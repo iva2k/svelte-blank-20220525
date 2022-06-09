@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@babel/core': ^7.18.2
   '@fontsource/fira-mono': ^4.5.0
+  '@mdx-js/react': ^2.1.1
   '@playwright/test': ^1.21.0
   '@storybook/addon-actions': ^6.5.8
   '@storybook/addon-controls': ^6.5.8
@@ -20,6 +21,7 @@ specifiers:
   '@storybook/core-common': ^6.5.8
   '@storybook/core-events': ^6.5.8
   '@storybook/node-logger': ^6.5.8
+  '@storybook/preview-web': ^6.5.8
   '@storybook/svelte': ^6.5.8
   '@storybook/testing-library': ^0.0.11
   '@storybook/theming': ^6.5.8
@@ -34,6 +36,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.10.1
   babel-loader: ^8.2.5
   cookie: ^0.4.1
+  cross-env: ^7.0.3
   eslint: ^8.12.0
   eslint-config-prettier: ^8.3.0
   eslint-import-resolver-typescript: ^2.7.1
@@ -60,6 +63,7 @@ dependencies:
 
 devDependencies:
   '@babel/core': 7.18.2
+  '@mdx-js/react': 2.1.1_react@17.0.0
   '@playwright/test': 1.22.2
   '@storybook/addon-actions': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
   '@storybook/addon-controls': 6.5.8_rm4cy77zvwnqy7ukdpfoxaz6rm
@@ -77,6 +81,7 @@ devDependencies:
   '@storybook/core-common': 6.5.8_rm4cy77zvwnqy7ukdpfoxaz6rm
   '@storybook/core-events': 6.5.8
   '@storybook/node-logger': 6.5.8
+  '@storybook/preview-web': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
   '@storybook/svelte': 6.5.8_ijpgswxtn2vwgwddtb23zjvkb4
   '@storybook/testing-library': 0.0.11_q3ro2d4tisdm4fljj6b5phevaq
   '@storybook/theming': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
@@ -90,6 +95,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.26.0_gu4clceiw6ditaem5r577qrdpi
   '@typescript-eslint/parser': 5.26.0_utdtartgf6fqqgkivzeynh76la
   babel-loader: 8.2.5_dzrarqmejens5o5lr5bdn3kdtu
+  cross-env: 7.0.3
   eslint: 8.16.0
   eslint-config-prettier: 8.5.0_eslint@8.16.0
   eslint-import-resolver-typescript: 2.7.1_btspkuwbqkl4adpiufzbathtpi
@@ -1846,6 +1852,16 @@ packages:
     peerDependencies:
       react: ^16.13.1 || ^17.0.0
     dependencies:
+      react: 17.0.0
+    dev: true
+
+  /@mdx-js/react/2.1.1_react@17.0.0:
+    resolution: {integrity: sha512-7zlZDf5xmWH8I0kFE4DG91COOkxjaW9DX5f1HWztZpFcVua2gJgMYfIkFaDpO/DH/tWi6Mz+OheW4194r15igg==}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      '@types/mdx': 2.0.2
+      '@types/react': 18.0.12
       react: 17.0.0
     dev: true
 
@@ -3780,6 +3796,10 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
+  /@types/mdx/2.0.2:
+    resolution: {integrity: sha512-mJGfgj4aWpiKb8C0nnJJchs1sHBHn0HugkVfqqyQi7Wn6mBRksLeQsPOFvih/Pu8L1vlDzfe/LidhVHBeUk3aQ==}
+    dev: true
+
   /@types/minimatch/3.0.5:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
     dev: true
@@ -5690,6 +5710,14 @@ packages:
       ripemd160: 2.0.2
       safe-buffer: 5.2.1
       sha.js: 2.4.11
+    dev: true
+
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/6.0.5:
