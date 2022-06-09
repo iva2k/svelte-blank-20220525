@@ -11,13 +11,13 @@ export default {
     // Note: For Typescript, keep argTypes in sync with argParams below.
     count: {
       control: {
-        type: 'number',
+        type: 'number'
       },
       defaultValue: 11,
       name: 'count',
-      type: { name: 'number', required: false },
-    },
-  },
+      type: { name: 'number', required: false }
+    }
+  }
 };
 
 // Note: For Typescript, keep argParams in sync with export default.argTypes above.
@@ -27,13 +27,13 @@ type argParams = {
 
 const Template: Story = ((args: argParams) => ({
   Component: Counter,
-  props: args,
+  props: args
   // TODO: This typescript gymnastics does not make any sense whatsoever, but it makes TS errors go away.
 })) as unknown as SvelteComponentTyped<StoryProps, Record<string, never>, Slots>;
 
 export const Primary: Story = Template.bind({});
 Primary.args = {
-  count: 11,
+  count: 11
 };
 
 //export const Secondary = Template.bind({});
