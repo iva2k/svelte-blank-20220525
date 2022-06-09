@@ -153,7 +153,7 @@ See [Remove Default Sever](#remove-default-server) below.
 
 pnpm install
 
-> WARN  deprecated node-pre-gyp@0.13.0: Please upgrade to @mapbox/node-pre-gyp: the non-scoped node-pre-gyp package is deprecated and only the @mapbox scoped package will re
+> WARN  deprecated node-pre-gyp@0.13.0: Please upgrade to @mapbox/node-pre-gyp: the non-scoped node-pre-gyp package is deprecated and only the @mapbox scoped package will re
 
 TODO
 
