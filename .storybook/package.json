@@ -1,0 +1,4 @@
+// .storybook/package.json
+{
+    "type": "commonjs"
+}

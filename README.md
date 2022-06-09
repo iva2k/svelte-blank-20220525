@@ -1,4 +1,4 @@
-# Blank Svelte Kit App + Tauri + Prettier + ESLint
+# Blank Svelte Kit App + Tauri + Storybook + Prettier + ESLint
 
 A cross-platform Desktop application starter.
 
@@ -245,4 +245,46 @@ Change bundle identifier (to remove the issue "Error: You must change the bundle
 -      "identifier": "com.tauri.dev",
 +      "identifier": "com.iva2k.svelte-blank-20220525",
       ...
+```
+
+### Add Storybook
+
+```bash
+## pnpm is a bit tricky with storybook install, use "-s" to skip installing dependencies.
+npx sb init -s --builder @storybook/builder-vite
+pnpm install
+pnpm install -D @storybook/addon-controls @storybook/addon-docs @storybook/addon-svelte-csf
+```
+
+Add peer dependencies (some may be already installed):
+
+```baseh
+pnpm i -D vite @babel/core babel-loader @storybook/core-common @storybook/addons @storybook/api @storybook/client-api @storybook/client-logger @storybook/node-logger @storybook/components @storybook/core-events @storybook/theming
+pnpm i -D  react@^17.0.0 react-dom@^17.0.0 @types/react@^17.0.0
+```
+
+Disable Storybook telemetry:
+
+```js
+// .storybook/main.js
+module.exports = {
+  core: {
++    disableTelemetry: true, // 👈 Disables telemetry
+  }
+};
+```
+
+To fix error in `.storybook/main.js`, add file `.storybook/package.json` with the following:
+
+```json
+// .storybook/package.json
+{
+  "type": "commonjs"
+}
+```
+
+Remove example stories and components:
+
+```bash
+npx rimraf src/stories
 ```
