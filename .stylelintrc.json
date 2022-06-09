@@ -1,0 +1,80 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-html",
+    "stylelint-config-prettier"
+  ],
+  "plugins": [
+    "@ronilaukkarinen/stylelint-a11y"
+  ],
+  "processors": [],
+  "rules": {
+    "a11y/media-prefers-reduced-motion": true,
+    "a11y/no-outline-none": true,
+    "a11y/selector-pseudo-class-focus": true,
+    "color-named": "never",
+    "font-family-name-quotes": "always-where-required",
+    "font-weight-notation": "named-where-possible",
+    "function-url-no-scheme-relative": true,
+    "function-url-quotes": "always",
+    "string-quotes": "single",
+    "value-keyword-case": "lower",
+    "unit-disallowed-list": [],
+    "max-empty-lines": 2,
+    "no-duplicate-selectors": true,
+    "font-family-no-missing-generic-family-keyword": null,
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "/^lost-/"
+        ]
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "global"
+        ]
+      }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen",
+          "function",
+          "each",
+          "if",
+          "else",
+          "return",
+          "layer"
+        ]
+      }
+    ],
+    "declaration-block-trailing-semicolon": null,
+    "no-descending-specificity": [
+      true,
+      {
+        "ignore": [
+          "selectors-within-list"
+        ]
+      }
+    ],
+    "no-invalid-double-slash-comments": true,
+    "block-no-empty": null
+  },
+  "ignoreFiles": [
+    "node_modules/*",
+    "src/assets/**",
+    "build/**",
+    "src/lib/styles/normalise.css"
+  ],
+  "defaultSeverity": "error",
+  "customSyntax": "postcss-html"
+}

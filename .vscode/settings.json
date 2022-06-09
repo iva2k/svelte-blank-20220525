@@ -10,7 +10,9 @@
     "source.fixAll.eslint": true,
     "source.fixAll.html": true
   },
-  "eslint.validate": ["svelte"],
+  "eslint.validate": [
+    "svelte"
+  ],
   "editor.tokenColorCustomizations": {
     "[Svelte]": {
       "textMateRules": [
@@ -31,5 +33,8 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "javascript.format.enable": false,
   "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": false
+  "files.trimFinalNewlines": false,
+  "files.associations": {
+    "*.svelte": "html"
+  }
 }

@@ -400,9 +400,11 @@ ESLint and Prettier is already part of Svelte Kit installation, so some of the p
 #### Stylelint and additional ESLint rules (Storybook and import)
 
 ```bash
-pnpm install -D stylelint stylelint-config-standard stylelint-config-recommended
+pnpm install -D stylelint @ronilaukkarinen/stylelint-a11y stylelint-config-standard stylelint-config-recommended svelte-check
 pnpm install -D eslint-plugin-import eslint-plugin-storybook
 ```
+
+Note: stylelint-a11y original creator / maintainer is AWOL, using an updated and maintained fork.
 
 Edit `.eslintrc.cjs` file:
 
@@ -434,6 +436,8 @@ module.exports = {
 
 #### Postcss, Autoprefixer
 
+Autoprefixer is a PostCSS plugin to parse CSS and add vendor prefixes to CSS rules using values from [Can I Use](https://caniuse.com/). It is recommended by Google and used in Twitter and Alibaba.
+
 ```bash
 pnpm install -D postcss postcss-cli postcss-import postcss-nesting postcss-html autoprefixer
 ```
@@ -452,4 +456,21 @@ const config = {
 };
 
 module.exports = config;
+```
+
+#### Prettier and additional Stylelint rules
+
+```bash
+pnpm install -D prettier stylelint-config-prettier stylelint-config-html
+```
+
+#### Create Stylelint configuration
+
+Add file `.stylelintrc.json`:
+
+```json
+// .stylelintrc.json
+{
+  ... see file in the repo
+}
 ```
