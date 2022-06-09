@@ -1,3 +1,5 @@
+const preprocess = require('svelte-preprocess');
+
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx|svelte)'],
   addons: [
@@ -11,7 +13,7 @@ module.exports = {
     disableTelemetry: true,
   },
   svelteOptions: {
-    preprocess: require('../svelte.config.js').preprocess
+    preprocess: preprocess(),
   },
   features: {
     storyStoreV7: true // Enable on-demand stories loading/ Not loading .stories.svelte in storybook v6.5.3

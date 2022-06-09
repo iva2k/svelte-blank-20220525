@@ -288,3 +288,20 @@ Remove example stories and components:
 ```bash
 npx rimraf src/stories
 ```
+
+### Solve Storybook Issues
+
+#### Preprocess in .storybook/main.js
+
+It turned out that storybook `main.js` trying to import preprocess from `svelte.config.js` is not viable (import is async, returns Promis, and can't await in top-level .cjs files). The solution was to hard-code same preprocess in `.storybook/main.js` same as in `svelte.config.js`.
+
+```js
+// .storybook/main.js
++ const preprocess = require('svelte-preprocess');
+module.exports = {
+  ...
+  svelteOptions: {
+-    preprocess: require('../svelte.config.js').preprocess
++    preprocess: preprocess(),
+  },
+```
