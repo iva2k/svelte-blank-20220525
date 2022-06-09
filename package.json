@@ -18,7 +18,7 @@
     "format": "prettier --write --plugin-search-dir=. .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "all": "pnpm i && pnpm run format && pnpm run lint && pnpm tauri info && pnpm run svelte:build && pnpm run build && pnpm run package && pnpm run test && pnpm run check",
+    "all": "pnpm i && pnpm run format && pnpm run lint && pnpm tauri info && pnpm run svelte:build && pnpm run build && pnpm run package && pnpm run test && pnpm run check"
   },
   "dependencies": {
     "@fontsource/fira-mono": "^4.5.0",
