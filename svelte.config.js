@@ -25,7 +25,9 @@ const config = {
     alias: {
       // Place to add all aliases. Run 'svelte-kit sync' (or npm run prepare) to update paths in .svelte-kit/tsconfig.json
       // $components: resolve('./src/lib/components')
-    }
+    },
+
+    vite: () => ({})
   }
 };
 
