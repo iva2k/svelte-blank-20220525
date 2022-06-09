@@ -55,7 +55,7 @@
     font-size: 2rem;
   }
 
-  .counter button:hover {
+  .counter button:hover, .counter button:focus {
     background-color: var(--secondary-color);
   }
 
