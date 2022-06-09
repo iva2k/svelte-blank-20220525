@@ -12,9 +12,7 @@
     "a11y/media-prefers-reduced-motion": true,
     "a11y/no-outline-none": true,
     "a11y/selector-pseudo-class-focus": true,
-    "color-named": "never",
     "font-family-name-quotes": "always-where-required",
-    "font-weight-notation": "named-where-possible",
     "function-url-no-scheme-relative": true,
     "function-url-quotes": "always",
     "string-quotes": "single",
@@ -58,14 +56,7 @@
       }
     ],
     "declaration-block-trailing-semicolon": null,
-    "no-descending-specificity": [
-      true,
-      {
-        "ignore": [
-          "selectors-within-list"
-        ]
-      }
-    ],
+    "no-descending-specificity": null,
     "no-invalid-double-slash-comments": true,
     "block-no-empty": null
   },
