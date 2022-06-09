@@ -6,15 +6,20 @@ specifiers:
   '@mdx-js/react': ^2.1.1
   '@playwright/test': ^1.21.0
   '@storybook/addon-actions': ^6.5.8
+  '@storybook/addon-backgrounds': ^6.5.8
   '@storybook/addon-controls': ^6.5.8
   '@storybook/addon-docs': ^6.5.8
   '@storybook/addon-essentials': ^6.5.8
   '@storybook/addon-interactions': ^6.5.8
   '@storybook/addon-links': ^6.5.8
+  '@storybook/addon-measure': ^6.5.8
+  '@storybook/addon-outline': ^6.5.8
   '@storybook/addon-svelte-csf': ^2.0.4
   '@storybook/addons': ^6.5.8
   '@storybook/api': ^6.5.8
   '@storybook/builder-vite': ^0.1.36
+  '@storybook/channel-postmessage': ^6.5.8
+  '@storybook/channel-websocket': ^6.5.8
   '@storybook/client-api': ^6.5.8
   '@storybook/client-logger': ^6.5.8
   '@storybook/components': ^6.5.8
@@ -66,15 +71,20 @@ devDependencies:
   '@mdx-js/react': 2.1.1_react@17.0.0
   '@playwright/test': 1.22.2
   '@storybook/addon-actions': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
+  '@storybook/addon-backgrounds': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
   '@storybook/addon-controls': 6.5.8_rm4cy77zvwnqy7ukdpfoxaz6rm
   '@storybook/addon-docs': 6.5.8_tgdr3iclx7plz2spq4htalhbpy
   '@storybook/addon-essentials': 6.5.8_qpurvljdqu5umku3oygmmefuum
   '@storybook/addon-interactions': 6.5.8_kj75ytral2a4vlcfvmmlwzwtw4
   '@storybook/addon-links': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
+  '@storybook/addon-measure': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
+  '@storybook/addon-outline': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
   '@storybook/addon-svelte-csf': 2.0.4_a5mgksei2o6ewub5pujvbguwoy
   '@storybook/addons': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
   '@storybook/api': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
   '@storybook/builder-vite': 0.1.36_duip7rxzy7f7acglb67g2emx5u
+  '@storybook/channel-postmessage': 6.5.8
+  '@storybook/channel-websocket': 6.5.8
   '@storybook/client-api': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
   '@storybook/client-logger': 6.5.8
   '@storybook/components': 6.5.8_q3ro2d4tisdm4fljj6b5phevaq
