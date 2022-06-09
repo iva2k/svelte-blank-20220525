@@ -10,10 +10,10 @@ module.exports = {
   framework: '@storybook/svelte',
   core: {
     builder: '@storybook/builder-vite',
-    disableTelemetry: true,
+    disableTelemetry: true
   },
   svelteOptions: {
-    preprocess: preprocess(),
+    preprocess: preprocess()
   },
   features: {
     storyStoreV7: true // Enable on-demand stories loading/ Not loading .stories.svelte in storybook v6.5.3
