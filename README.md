@@ -1,4 +1,4 @@
-# Blank Svelte Kit App + Tauri + Storybook + Prettier + ESLint + Stylelint
+# Blank Svelte Kit App + Tauri + Storybook + Prettier + ESLint + Stylelint + Postcss
 
 A cross-platform Desktop application starter.
 
@@ -11,6 +11,7 @@ Built with:
 - [Prettier](https://prettier.io/) - Opinionated Code Formatter
 - [ESLint](https://eslint.org) - Pluggable JavaScript linter
 - [Stylelint](https://stylelint.io/) - A mighty, modern CSS linter
+- [Postcss](https://postcss.org/) - Transforming styles with JS plugins
 
 This file describes how this app was created.
 
@@ -392,11 +393,11 @@ Finally, got Storybook working with stories (.tsx, not .svelte) for Counter and 
 
 That references a bug that has been fixed, however, I'm still getting Storybook not taking .svelte components with Typescript.
 
-### Add Prettier & ESLint Rules, Stylelint
+### Add Prettier & ESLint Rules, Stylelint, Postcss and Autoprefixer
 
 ESLint and Prettier is already part of Svelte Kit installation, so some of the packages below are already present.
 
-Stylelint and additional ESLint rules (Storybook and import):
+#### Stylelint and additional ESLint rules (Storybook and import)
 
 ```bash
 pnpm install -D stylelint stylelint-config-standard stylelint-config-recommended
@@ -418,10 +419,10 @@ module.exports = {
   ],
   ...
   parserOptions: {
-    project: ['./tsconfig.json', './tsconfig.lint.json'],
-    tsconfigRootDir: './',
-    sourceType: 'module',
-    ecmaVersion: 2020,
+     project: ['./tsconfig.json', './tsconfig.lint.json'],
+     tsconfigRootDir: './',
+     sourceType: 'module',
+     ecmaVersion: 2020,
 +    extraFileExtensions: ['.svelte']
   },
   ...
@@ -429,4 +430,26 @@ module.exports = {
 +    'import/no-mutable-exports': 'off'
 +  }
 };
+```
+
+#### Postcss, Autoprefixer
+
+```bash
+pnpm install -D postcss postcss-cli postcss-import postcss-nesting postcss-html autoprefixer
+```
+
+Add file `postcss.config.cjs` with the following contents:
+
+```js
+const autoprefixer = require('autoprefixer');
+
+const config = {
+  plugins: {
+    'postcss-import': {},
+    'postcss-nesting': {},
+    autoprefixer
+  }
+};
+
+module.exports = config;
 ```
