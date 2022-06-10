@@ -400,7 +400,7 @@ ESLint and Prettier is already part of Svelte Kit installation, so some of the p
 #### Stylelint and additional ESLint rules (Storybook and import)
 
 ```bash
-pnpm install -D stylelint @ronilaukkarinen/stylelint-a11y stylelint-config-standard stylelint-config-recommended svelte-check
+pnpm install -D stylelint @ronilaukkarinen/stylelint-a11y stylelint-config-standard stylelint-config-recommended
 pnpm install -D eslint-plugin-import eslint-plugin-storybook
 ```
 
