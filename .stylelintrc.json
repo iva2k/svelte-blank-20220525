@@ -2,8 +2,11 @@
   "extends": ["stylelint-config-recommended", "stylelint-config-html", "stylelint-config-prettier"],
   "plugins": ["@ronilaukkarinen/stylelint-a11y"],
   "processors": [],
+  "rulesDisabled": {
+    "a11y/media-prefers-reduced-motion-NOTE": "https:57//github.com/YozhikM/stylelint-a11y/issues/57",
+    "a11y/media-prefers-reduced-motion": true
+  },
   "rules": {
-    "a11y/media-prefers-reduced-motion": true,
     "a11y/no-outline-none": true,
     "a11y/selector-pseudo-class-focus": true,
     "font-family-name-quotes": "always-where-required",
