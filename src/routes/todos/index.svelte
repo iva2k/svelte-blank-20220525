@@ -211,8 +211,6 @@
     }
   }
 
-
-
   .todo input:focus + .save,
   .save:focus {
     transition: opacity 0.2s;
