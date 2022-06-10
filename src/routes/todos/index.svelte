@@ -190,22 +190,6 @@
     }
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .delete:hover,
-    .delete:focus {
-      transition: none;
-      opacity: 1;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .delete:hover,
-    .delete:focus {
-      transition: none;
-      opacity: 1;
-    }
-  }
-
   .delete:hover,
   .delete:focus {
     transition: opacity 0.2s;
@@ -227,21 +211,7 @@
     }
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .todo input:focus + .save,
-    .save:focus {
-      transition: none;
-      opacity: 1;
-    }
-  }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .todo input:focus + .save,
-    .save:focus {
-      transition: none;
-      opacity: 1;
-    }
-  }
 
   .todo input:focus + .save,
   .save:focus {
