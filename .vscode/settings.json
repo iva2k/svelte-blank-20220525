@@ -29,9 +29,6 @@
   "javascript.format.enable": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
-  "files.associations": {
-    "*.svelte": "html"
-  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -40,5 +37,8 @@
   },
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
   }
 }
