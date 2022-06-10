@@ -23,9 +23,6 @@
       ]
     }
   },
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
   "svelte.enable-ts-plugin": true,
   "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.tsdk": "node_modules/typescript/lib",
@@ -34,5 +31,14 @@
   "files.trimFinalNewlines": false,
   "files.associations": {
     "*.svelte": "html"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
   }
 }
