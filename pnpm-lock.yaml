@@ -5,7 +5,7 @@ specifiers:
   '@fontsource/fira-mono': ^4.5.0
   '@mdx-js/preact': ^2.1.1
   '@mdx-js/react': ^2.1.1
-  '@playwright/test': ^1.21.0
+  '@playwright/test': ^1.22.2
   '@prefresh/core': ^1.3.4
   '@prefresh/vite': ^2.2.8
   '@ronilaukkarinen/stylelint-a11y': ^1.2.4
@@ -12811,7 +12811,7 @@ packages:
     dev: true
 
   /to-regex-range/2.1.1:
-    resolution: {integrity: sha1-fIDBe53+vlmeJzZ+DU3VWQFB2zg=}
+    resolution: {integrity: sha512-ZZWNfCjUokXXDGXFpZehJIkZqq91BcULFq/Pi7M5i4JnxXdhMKAK682z8bCW3o8Hj1wuuzoKcW3DfVzaP6VuNg==}
     engines: {node: '>=0.10.0'}
     dependencies:
       is-number: 3.0.0
@@ -12841,7 +12841,7 @@ packages:
     dev: true
 
   /tr46/0.0.3:
-    resolution: {integrity: sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=}
+    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: true
 
   /trim-newlines/1.0.0:
