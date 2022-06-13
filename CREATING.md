@@ -456,11 +456,55 @@ Add file `.stylelintrc.json`:
 }
 ```
 
-TODO:
+#### VSCode formatOnSave
 
-- VSCode formatOnSave should match prettier "pnpm format"
-  - [FIXED] .json (VSCode was using JSON formatter despite top-level "editor.defaultFormatter", had to use `"[jsonc]": { "editor.defaultFormatter": ...}`)
-  - .svelte
-  - .html
-  - .js
-  - .ts
+VSCode can format all documents on save, and it should match Stylelint & Prettier.
+
+Some issues can be with VSCode user settings that are not visible right away. If saving any files and then running `pnpm format` shows those files as changed in the process, check "editor.defaultFormatter" for that file type.
+
+For example, VSCode would re-format .json files differently. It turns out VSCode was using different JSON formatter set in user settings, and ignored top-level "editor.defaultFormatter". To fix that, add `jsonc` and `json` settings to `.vscode/settings.json` file as shown below.
+
+Add the following to `.vscode/settings.json` file (if not already there):
+
+```json
+// .vscode/settings.json
+{
++  "editor.defaultFormatter": "esbenp.prettier-vscode",
++  "editor.formatOnSave": true,
++  "editor.formatOnPaste": true,
++  "editor.formatOnType": false,
++  "editor.codeActionsOnSave": {
++    "source.fixAll.eslint": true,
++    "source.fixAll.html": true
++  },
++  "eslint.validate": ["svelte"],
++  "editor.tokenColorCustomizations": {
++    "[Svelte]": {
++      "textMateRules": [
++        {
++          "settings": {
++            "foreground": "#569CD6" // any color you like
++          },
++          "scope": "support.class.component.svelte" // scope name you want to adjust highlighting for
++        }
++      ]
++    }
++  },
++  "svelte.enable-ts-plugin": true,
++  "javascript.format.enable": false,
++  "files.insertFinalNewline": true,
++  "files.trimFinalNewlines": false,
++  "[json]": {
++    "editor.defaultFormatter": "esbenp.prettier-vscode"
++  },
++  "[jsonc]": {
++    "editor.defaultFormatter": "esbenp.prettier-vscode"
++  },
++  "[svelte]": {
++    "editor.defaultFormatter": "svelte.svelte-vscode"
++  },
++  "[html]": {
++    "editor.defaultFormatter": "vscode.html-language-features"
++  }
+}
+```
