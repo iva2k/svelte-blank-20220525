@@ -1,4 +1,4 @@
-# Creating: Blank Svelte Kit App + Tauri + Storybook + Prettier + ESLint + Stylelint + Postcss
+# Creating: Blank Svelte Kit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
 
 This file describes how this app was created.
 
@@ -539,7 +539,9 @@ code --install-extension ionic.ionic
 Add Capacitor to the project:
 
 ```bash
-pnpm install @capacitor/core @capacitor/cli
+pnpm install @capacitor/core
+pnpm install -D @capacitor/cli
+# use npx vs. pnpx with cap as pnpx won't run cap (o call cap directly, without npx):
 npx cap init svelte-blank-20220525 com.iva2k.svelteblank20220525 --web-dir=build
 ```
 
@@ -586,7 +588,7 @@ Create `src/routes/geolocation.svelte`:
 </div>
 ```
 
-And add the page to header links:
+And add the page to the header links:
 
 ```js
 <header>
@@ -602,3 +604,48 @@ And add the page to header links:
 +        <a sveltekit:prefetch href="/geolocation">Geolocation</a>
 +      </li>
 ```
+
+Add few scripts for convenince:
+
+```json
+// package.json
+{
+  ...
+  "scripts": {
+     ...
++    "open:android": "cap open android",
++    "dev:android": "cap run android",
+```
+
+#### Using PWA Elements
+
+Some Capacitor plugins (such as Camera, Toast) need custom UI elements. Need to add @ionic/pwa-elements to the project (this project does not have that done):
+
+```bash
+pnpm install @ionic/pwa-elements
+```
+
+A typical installation involves importing the package and registering the elements, or adding a script tag to the \<head\> of the index.html for the app
+
+```js
+// TODO: Convert this code snippet to Svelte/Svelte-kit. Somehow it should get into .svelte-kit/**/start.js
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+ReactDOM.render(<App />, document.getElementById('root')); // TODO: To svelte
+// Call the element loader after the app has been rendered the first time
+defineCustomElements(window);
+```
+
+#### Interesting Capacitor Community Plugins
+
+- @capacitor-community/bluetooth-le
+- @capacitor-community/barcode-scanner
+- @capacitor-community/camera-preview
+- @capacitor-community/keep-awake
+
+#### Fix Issues With Capacitor
+
+##### Error in `pnpm run dev:android`
+
+> ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+
+TODO: Fix
