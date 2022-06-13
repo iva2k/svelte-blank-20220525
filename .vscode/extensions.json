@@ -10,6 +10,7 @@
     "joshbolduc.story-explorer",
     "mrmlnc.vscode-autoprefixer",
     "ms-playwright.playwright",
-    "ionic.ionic"
+    "ionic.ionic",
+    "dotjoshjohnson.xml"
   ]
 }
