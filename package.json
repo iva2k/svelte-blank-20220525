@@ -22,6 +22,9 @@
     "all": "pnpm i && pnpm lint:css --fix && pnpm format && pnpm lint && pnpm tauri info && pnpm svelte:build && pnpm build && pnpm build-storybook && pnpm package && pnpm test && pnpm check"
   },
   "dependencies": {
+    "@capacitor/android": "^3.5.1",
+    "@capacitor/cli": "^3.5.1",
+    "@capacitor/core": "^3.5.1",
     "@fontsource/fira-mono": "^4.5.0",
     "cookie": "^0.4.1"
   },

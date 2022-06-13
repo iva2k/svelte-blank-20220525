@@ -9,6 +9,7 @@
     "gruntfuggly.todo-tree",
     "joshbolduc.story-explorer",
     "mrmlnc.vscode-autoprefixer",
-    "ms-playwright.playwright"
+    "ms-playwright.playwright",
+    "ionic.ionic"
   ]
 }

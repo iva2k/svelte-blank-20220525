@@ -225,7 +225,13 @@ Add the following to `svelte.config.js`:
 const config = {
   ...
   kit: {
-    adapter: adapter({}),
+    adapter: adapter({
++      // default options are shown:
++      // pages: 'build',
++      // assets: 'build',
++      // fallback: null,
++      // precompress: false
+    }),
 +    prerender: {
 +      // This can be false when using a fallback (i.e. SPA mode)
 +      default: true,
@@ -507,4 +513,46 @@ Add the following to `.vscode/settings.json` file (if not already there):
 +    "editor.defaultFormatter": "vscode.html-language-features"
 +  }
 }
+```
+
+### Capacitor
+
+Capcitor has 2 largely independent parts that we could use:
+
+1. Plugins to use native functionality
+2. Build apps for mobile platforms - iOS, Android
+
+Use of native functionality (like Camera, GPS, etc.) can be very handy for some apps.
+
+Since Tauri has no iOS/Andoid support (it's in development), we can use Capacitor to bridge that gap.
+
+We will target QR code scanning as a very usefull feature. The following is based on `@sveltejs/adapter-static` which puts output to 'build' folder by default (beware that other adapters place output files into different location).
+
+First, install pre-requisites per <https://capacitorjs.com/docs/getting-started/environment-setup>.
+
+Then, install VSCode extension:
+
+```bash
+code --install-extension ionic.ionic
+```
+
+Add Capacitor to the project:
+
+```bash
+pnpm install @capacitor/core @capacitor/cli
+npx cap init svelte-blank-20220525 com.iva2k.svelteblank20220525 --web-dir=build
+```
+
+Add Android platform:
+
+```bash
+pnpm install @capacitor/android
+npx cap add android
+```
+
+Add iOS platform:
+
+```bash
+pnpm install @capacitor/ios
+npx cap add ios
 ```
