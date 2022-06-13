@@ -147,7 +147,7 @@ pnpm install
 
 > WARN  deprecated node-pre-gyp@0.13.0: Please upgrade to @mapbox/node-pre-gyp: the non-scoped node-pre-gyp package is deprecated and only the @mapbox scoped package will re
 
-TODO
+TODO: Find a fix.
 
 ## Additions
 
@@ -631,7 +631,7 @@ A typical installation involves importing the package and registering the elemen
 ```js
 // TODO: Convert this code snippet to Svelte/Svelte-kit. Somehow it should get into .svelte-kit/**/start.js
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-ReactDOM.render(<App />, document.getElementById('root')); // TODO: To svelte
+ReactDOM.render(<App />, document.getElementById('root')); // TODO: Change to svelte
 // Call the element loader after the app has been rendered the first time
 defineCustomElements(window);
 ```
@@ -649,4 +649,4 @@ defineCustomElements(window);
 
 > ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
-TODO: Fix
+TODO: Find a fix.
