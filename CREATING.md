@@ -556,3 +556,49 @@ Add iOS platform:
 pnpm install @capacitor/ios
 npx cap add ios
 ```
+
+Now we can use Capacitor plugins. For a quick example, add Geolocation:
+
+```bash
+pnpm install @capacitor/geolocation
+```
+
+Create `src/routes/geolocation.svelte`:
+
+```js
+<script>
+  import { Geolocation } from '@capacitor/geolocation';
+
+  let loc = null;
+  async function getCurrentPosition() {
+    const res = await Geolocation.getCurrentPosition();
+    loc = res;
+  }
+</script>
+
+<div>
+  <h1>Geolocation</h1>
+  <p>Your location is:</p>
+  <p>Latitude: {loc?.coords.latitude}</p>
+  <p>Longitude: {loc?.coords.longitude}</p>
+
+  <button on:click={getCurrentPosition}> Get Current Location </button>
+</div>
+```
+
+And add the page to header links:
+
+```js
+<header>
+  ...
+  <nav>
+    ...
+    <ul>
+      ...
+      <li class:active={pathname === '/todos'}>
+        <a sveltekit:prefetch href="/todos">Todos</a>
+      </li>
++      <li class:active={pathname === '/geolocation'}>
++        <a sveltekit:prefetch href="/geolocation">Geolocation</a>
++      </li>
+```
