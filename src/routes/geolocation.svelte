@@ -1,7 +1,7 @@
-<script>
-  import { Geolocation } from '@capacitor/geolocation';
+<script lang="ts">
+  import { Geolocation, type Position } from '@capacitor/geolocation';
 
-  let loc = null;
+  let loc: Position | null = null;
   async function getCurrentPosition() {
     const res = await Geolocation.getCurrentPosition();
     loc = res;
