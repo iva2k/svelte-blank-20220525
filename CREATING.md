@@ -526,7 +526,11 @@ Use of native functionality (like Camera, GPS, etc.) can be very handy for some 
 
 Since Tauri has no iOS/Andoid support (it's in development), we can use Capacitor to bridge that gap.
 
-We will target QR code scanning as a very usefull feature. The following is based on `@sveltejs/adapter-static` which puts output to 'build' folder by default (beware that other adapters place output files into different location).
+We will target QR code scanning as a very usefull feature.
+
+#### Setup
+
+The following setup is based on `@sveltejs/adapter-static` which puts output to 'build' folder by default (beware that other adapters place output files into different location).
 
 First, install pre-requisites per <https://capacitorjs.com/docs/getting-started/environment-setup>.
 
@@ -545,21 +549,37 @@ pnpm install -D @capacitor/cli
 npx cap init svelte-blank-20220525 com.iva2k.svelteblank20220525 --web-dir=build
 ```
 
-Add Android platform:
+Add few scripts for convenince:
+
+```json
+// package.json
+{
+  ...
+  "scripts": {
+     ...
++    "open:android": "cap open android",
++    "dev:android": "cap run android",
+```
+
+##### Add Android platform
 
 ```bash
 pnpm install @capacitor/android
 npx cap add android
 ```
 
-Add iOS platform:
+##### Add iOS platform
 
 ```bash
 pnpm install @capacitor/ios
 npx cap add ios
 ```
 
-Now we can use Capacitor plugins. For a quick example, add Geolocation:
+Now we can use Capacitor plugins for native functionality.
+
+#### Add Geolocation
+
+For a quick example, add Geolocation:
 
 ```bash
 pnpm install @capacitor/geolocation
@@ -606,17 +626,9 @@ And add the page to the header links:
 +      </li>
 ```
 
-Add few scripts for convenince:
+#### Add QR Code Scanner
 
-```json
-// package.json
-{
-  ...
-  "scripts": {
-     ...
-+    "open:android": "cap open android",
-+    "dev:android": "cap run android",
-```
+TODO: Implement
 
 #### Using PWA Elements
 
