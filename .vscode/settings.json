@@ -43,5 +43,6 @@
   },
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"
-  }
+  },
+  "npm.packageManager": "pnpm"
 }
