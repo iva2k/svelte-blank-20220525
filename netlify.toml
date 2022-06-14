@@ -1,5 +1,5 @@
 [build]
-  command = "NETLIFY=1 pnpm run svelte:build"
+  command = "pnpm run svelte:build"
   publish = "build"
 [build.environment]
   NODE_VERSION = "18"
