@@ -10,6 +10,7 @@ node_modules
 .output
 .types
 log.*
+test-results.json
 /storybook-static
 /src-tauri/target
 /src-tauri/WixTools
