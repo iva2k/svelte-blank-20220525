@@ -1,4 +1,6 @@
 // import adapter from '@sveltejs/adapter-auto';
+import netlify from '@sveltejs/adapter-netlify';
+import vercel from '@sveltejs/adapter-vercel';
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 // import { resolve } from 'path';
@@ -10,13 +12,17 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: adapter({
-      // default options are shown:
-      // pages: 'build',
-      // assets: 'build',
-      // fallback: null,
-      // precompress: false
-    }),
+    adapter: process.env.VERCEL
+      ? vercel()
+      : process.env.NETLIFY
+      ? netlify()
+      : adapter({
+          // default options are shown:
+          // pages: 'build',
+          // assets: 'build',
+          // fallback: null,
+          // precompress: false
+        }),
 
     prerender: {
       // This can be false when using a fallback (i.e. SPA mode)
