@@ -1,8 +1,8 @@
 # Blank Svelte Kit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
 
-A cross-platform Desktop application starter.
+A cross-platform Desktop / Mobile / Web application starter.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/iva2k/svelte-blank-20220525)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/iva2k/svelte-blank-20220525) Note: Currently StackBlitz is not able to install and build this project.
 
 Built with:
 
@@ -35,23 +35,48 @@ pnpm install # or npm install
 ### Start development server
 
 ```bash
-pnpm run dev
+pnpm run svelte:dev
 
 # or start the development server and open the app in a new browser tab
-pnpm run dev -- --open
+pnpm run svelte:dev -- --open
 ```
 
 ## Building
 
-To create a production version of the app:
+To create a production version of the web app (to be hosted on a server):
+
+```bash
+pnpm run svelte:build
+```
+
+To preview the production build of the web app, execute `pnpm run preview`.
+
+To deploy the app, need to install an [adapter](https://kit.svelte.dev/docs/adapters) for the target environment.
+
+## Desktop App
+
+To run desktop app (using Tauri)
+
+```bash
+pnpm run dev
+```
+
+To create desktop executable:
 
 ```bash
 pnpm run build
 ```
 
-To preview the production build, execute `pnpm run preview`.
+## Mobile App
 
-To deploy the app, need to install an [adapter](https://kit.svelte.dev/docs/adapters) for the target environment.
+To update mobile app project (Android):
+
+```bash
+pnpm run svelte:build
+cap open android
+```
+
+iOS platform is not installed in this repo, but can easily be added. See [CREATING](./CREATING.md)
 
 ## How This App Was Created
 
