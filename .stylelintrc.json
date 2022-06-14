@@ -53,7 +53,13 @@
     "no-invalid-double-slash-comments": true,
     "block-no-empty": null
   },
-  "ignoreFiles": ["node_modules/*", "src/assets/**", "build/**", "src/lib/styles/normalise.css"],
+  "ignoreFiles": [
+    "node_modules/*",
+    "src/assets/**",
+    "build/**",
+    "src/lib/styles/normalise.css",
+    "android/**"
+  ],
   "defaultSeverity": "error",
   "customSyntax": "postcss-html"
 }

@@ -1,4 +1,4 @@
-# Creating: Blank Svelte Kit App + Tauri + Storybook + Prettier + ESLint + Stylelint + Postcss
+# Creating: Blank Svelte Kit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
 
 This file describes how this app was created.
 
@@ -147,7 +147,7 @@ pnpm install
 
 > WARN  deprecated node-pre-gyp@0.13.0: Please upgrade to @mapbox/node-pre-gyp: the non-scoped node-pre-gyp package is deprecated and only the @mapbox scoped package will re
 
-TODO
+TODO: Find a fix.
 
 ## Additions
 
@@ -225,7 +225,13 @@ Add the following to `svelte.config.js`:
 const config = {
   ...
   kit: {
-    adapter: adapter({}),
+    adapter: adapter({
++      // default options are shown:
++      // pages: 'build',
++      // assets: 'build',
++      // fallback: null,
++      // precompress: false
+    }),
 +    prerender: {
 +      // This can be false when using a fallback (i.e. SPA mode)
 +      default: true,
@@ -508,3 +514,181 @@ Add the following to `.vscode/settings.json` file (if not already there):
 +  }
 }
 ```
+
+### Capacitor
+
+Capcitor has 2 largely independent parts that we could use:
+
+1. Plugins to use native functionality
+2. Build apps for mobile platforms - iOS, Android
+
+Use of native functionality (like Camera, GPS, etc.) can be very handy for some apps.
+
+Since Tauri has no iOS/Andoid support (it's in development), we can use Capacitor to bridge that gap.
+
+We will target QR code scanning as a very usefull feature.
+
+#### Setup
+
+The following setup is based on `@sveltejs/adapter-static` which puts output to 'build' folder by default (beware that other adapters place output files into different location).
+
+First, install pre-requisites per <https://capacitorjs.com/docs/getting-started/environment-setup>.
+
+Then, install VSCode extension:
+
+```bash
+code --install-extension ionic.ionic
+```
+
+Add Capacitor to the project:
+
+```bash
+pnpm install @capacitor/core
+pnpm install -D @capacitor/cli
+# use npx vs. pnpx with cap as pnpx won't run cap (o call cap directly, without npx):
+npx cap init svelte-blank-20220525 com.iva2k.svelteblank20220525 --web-dir=build
+```
+
+Add few scripts for convenince:
+
+```json
+// package.json
+{
+  ...
+  "scripts": {
+     ...
++    "open:android": "cap open android",
++    "dev:android": "cap run android",
+```
+
+##### Add Android platform
+
+```bash
+pnpm install @capacitor/android
+npx cap add android
+```
+
+##### Add iOS platform
+
+```bash
+pnpm install @capacitor/ios
+npx cap add ios
+```
+
+Now we can use Capacitor plugins for native functionality.
+
+#### Add Geolocation
+
+For a quick example, add Geolocation:
+
+```bash
+pnpm install @capacitor/geolocation
+npx cap sync
+```
+
+Create `src/routes/geolocation.svelte`:
+
+```js
+<script lang="ts">
+  import { Geolocation, type Position } from '@capacitor/geolocation';
+
+  let loc: Position | null = null;
+  async function getCurrentPosition() {
+    const res = await Geolocation.getCurrentPosition();
+    loc = res;
+  }
+</script>
+
+<div>
+  <h1>Geolocation</h1>
+  <p>Your location is:</p>
+  <p>Latitude: {loc?.coords.latitude}</p>
+  <p>Longitude: {loc?.coords.longitude}</p>
+
+  <button on:click={getCurrentPosition}>Get Current Location</button>
+</div>
+```
+
+And add the page to the header links:
+
+```js
+<header>
+  ...
+  <nav>
+    ...
+    <ul>
+      ...
+      <li class:active={pathname === '/todos'}>
+        <a sveltekit:prefetch href="/todos">Todos</a>
+      </li>
++      <li class:active={pathname === '/geolocation'}>
++        <a sveltekit:prefetch href="/geolocation">Geolocation</a>
++      </li>
+```
+
+#### Add QR Code Scanner
+
+For the QR Code scanner feature, we will use [@capacitor-community/barcode-scanner](https://github.com/capacitor-community/barcode-scanner) plugin. Note that web platform is not yet supported [#31](https://github.com/capacitor-community/barcode-scanner/issues/31) (it looks quite simple to implement - use some existing lib like zxing on top of web camera and submit a PR).
+
+There are also other plugins to try (see <https://github.com/xulihang/capacitor-plugin-dynamsoft-barcode-reader/tree/main/example>).
+
+Because of the fact that the Scanner View will be rendered behind the WebView, we have to call `hideBackground()` to make the WebView and the \<html\> element transparent. Every other element that needs transparency, we will have to handle ourself.
+
+The elements are made transparent by adding `background: 'transparent';` in the \<style\> section.
+
+```bash
+pnpm install @capacitor-community/barcode-scanner
+npx cap sync
+```
+
+Create `src/routes/qrscanner.svelte`:
+
+```js
+// See src/routes/qrscanner.svelte file in repo
+```
+
+Add the page to the header links:
+
+```js
+<header>
+  ...
+  <nav>
+    ...
+    <ul>
+      ...
++      <li class:active={pathname === '/qrscanner'}>
++        <a sveltekit:prefetch href="/qrscanner">Geolocation</a>
++      </li>
+```
+
+#### Using PWA Elements
+
+Some Capacitor plugins (such as Camera, Toast) need custom UI elements. May need to add @ionic/pwa-elements to the project (this project does not have that done, and @capacitor-community/barcode-scanner seems to be working just fine without it):
+
+```bash
+pnpm install @ionic/pwa-elements
+```
+
+A typical installation involves importing the package and registering the elements, or adding a script tag to the \<head\> of the index.html for the app
+
+```js
+// TODO: Convert this code snippet to Svelte/Svelte-kit. Somehow it should get into .svelte-kit/**/start.js
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+ReactDOM.render(<App />, document.getElementById('root')); // TODO: Change to svelte
+// Call the element loader after the app has been rendered the first time
+defineCustomElements(window);
+```
+
+#### Interesting Capacitor Community Plugins
+
+- @capacitor-community/bluetooth-le
+- @capacitor-community/camera-preview
+- @capacitor-community/keep-awake
+
+#### Fix Issues With Capacitor
+
+##### Error in `pnpm run dev:android`
+
+> ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+
+TODO: Find a fix.
