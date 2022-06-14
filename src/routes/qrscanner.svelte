@@ -5,6 +5,7 @@
   const restrict = false;
   let scanActive = false;
   let scanResult: string | undefined;
+  let torchActive = false;
 
   const askPermissionDialog = async () => {
     return confirm(
@@ -75,7 +76,10 @@
     const body = document.querySelector('body');
     body?.classList[show ? 'add' : 'remove']?.('scanning');
     if (show) {
-      BarcodeScanner.hideBackground();
+      BarcodeScanner.hideBackground(); // This supposedly handles top-level <html>
+    } else {
+      torchEnable(false);
+      BarcodeScanner.showBackground();
     }
   };
 
@@ -117,6 +121,22 @@
     }
   };
 
+  const torchEnable = (enable: boolean) => {
+    if (enable) {
+      BarcodeScanner.enableTorch();
+    } else {
+      BarcodeScanner.disableTorch();
+    }
+    torchActive = enable;
+  };
+
+  const torchOn = () => {
+    torchEnable(true);
+  };
+  const torchOff = () => {
+    torchEnable(false);
+  };
+
   onMount(preloadScanner);
   onDestroy(stopScanner);
 </script>
@@ -126,6 +146,8 @@
   {#if scanActive}
     <div class="scan-toolbar">
       <button class="stop-button" on:click={stopScanner}>Stop</button>
+      <button class="torch-button" on:click={torchOn}>Light On</button>
+      <button class="torch-button" on:click={torchOff}>Light Off</button>
     </div>
     <div class="scan-frame" />
   {:else}
