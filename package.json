@@ -6,7 +6,7 @@
     "dev": " tauri dev",
     "build": "tauri build",
     "svelte:dev": " svelte-kit dev --port 3000",
-    "svelte:build": "svelte-kit build",
+    "svelte:build": "svelte-kit build && cap sync android",
     "package": "svelte-kit package",
     "preview": " svelte-kit preview",
     "prepare": "svelte-kit sync",
@@ -24,6 +24,7 @@
     "all": "pnpm i && pnpm lint:css --fix && pnpm format && pnpm lint && pnpm tauri info && pnpm svelte:build && pnpm build && pnpm build-storybook && pnpm package && pnpm test && pnpm check"
   },
   "dependencies": {
+    "@capacitor-community/barcode-scanner": "^2.1.1",
     "@capacitor/android": "^3.5.1",
     "@capacitor/core": "^3.5.1",
     "@capacitor/geolocation": "^1.3.1",

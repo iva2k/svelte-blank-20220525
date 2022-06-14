@@ -628,11 +628,42 @@ And add the page to the header links:
 
 #### Add QR Code Scanner
 
-TODO: Implement
+For the QR Code scanner feature, we will use [@capacitor-community/barcode-scanner](https://github.com/capacitor-community/barcode-scanner) plugin. Note that web platform is not yet supported [#31](https://github.com/capacitor-community/barcode-scanner/issues/31) (it looks quite simple to implement - use some existing lib like zxing on top of web camera and submit a PR).
+
+There are also other plugins to try (see <https://github.com/xulihang/capacitor-plugin-dynamsoft-barcode-reader/tree/main/example>).
+
+Because of the fact that the Scanner View will be rendered behind the WebView, we have to call `hideBackground()` to make the WebView and the \<html\> element transparent. Every other element that needs transparency, we will have to handle ourself.
+
+The elements are made transparent by adding `background: 'transparent';` in the \<style\> section.
+
+```bash
+pnpm install @capacitor-community/barcode-scanner
+npx cap sync
+```
+
+Create `src/routes/qrscanner.svelte`:
+
+```js
+// See src/routes/qrscanner.svelte file in repo
+```
+
+Add the page to the header links:
+
+```js
+<header>
+  ...
+  <nav>
+    ...
+    <ul>
+      ...
++      <li class:active={pathname === '/qrscanner'}>
++        <a sveltekit:prefetch href="/qrscanner">Geolocation</a>
++      </li>
+```
 
 #### Using PWA Elements
 
-Some Capacitor plugins (such as Camera, Toast) need custom UI elements. Need to add @ionic/pwa-elements to the project (this project does not have that done):
+Some Capacitor plugins (such as Camera, Toast) need custom UI elements. May need to add @ionic/pwa-elements to the project (this project does not have that done, and @capacitor-community/barcode-scanner seems to be working just fine without it):
 
 ```bash
 pnpm install @ionic/pwa-elements
@@ -651,7 +682,6 @@ defineCustomElements(window);
 #### Interesting Capacitor Community Plugins
 
 - @capacitor-community/bluetooth-le
-- @capacitor-community/barcode-scanner
 - @capacitor-community/camera-preview
 - @capacitor-community/keep-awake
 
