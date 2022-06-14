@@ -1,73 +1,87 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import { BarcodeScanner, SupportedFormat } from '@capacitor-community/barcode-scanner';
 
   const restrict = false;
   let scanActive = false;
   let scanResult: string | undefined;
 
+  const askPermissionDialog = async () => {
+    return confirm(
+      'We need your permission to use your camera to be able to scan QR and barcodes.'
+    );
+  };
+
   const checkPermission = async () => {
     // check if user already granted permission
-    const status = await BarcodeScanner.checkPermission({ force: false });
+    const passivePermission = await BarcodeScanner.checkPermission({ force: false });
+    // TODO: Catch  BarcodeScanner.checkPermission() thrown errors (e.g. for platforms that are not yet supported, such as web).
 
-    if (status.granted) {
-      // user granted permission
+    if (passivePermission.granted) {
+      // user granted permission before
       return true;
     }
 
-    if (status.denied) {
-      // user denied permission
+    if (passivePermission.denied || passivePermission.restricted || passivePermission.unknown) {
+      // user denied permission before
       return false;
     }
 
-    if (status.asked) {
+    if (passivePermission.asked) {
       // system requested the user for permission during this call
       // only possible when force set to true
     }
 
-    if (status.neverAsked) {
-      // user has not been requested this permission before
-      // it is advised to show the user some sort of prompt
-      // this way you will not waste your only chance to ask for the permission
-      const c = confirm('We need your permission to use your camera to be able to scan barcodes');
-      if (!c) {
-        return false;
-      }
+    if (!passivePermission.neverAsked) {
+      return false;
     }
-
-    if (status.restricted || status.unknown) {
-      // ios only
-      // probably means the permission has been denied
+    if (!(await askPermissionDialog())) {
       return false;
     }
 
     // user has not denied permission
     // but the user also has not yet granted the permission
     // so request it
-    const statusRequest = await BarcodeScanner.checkPermission({ force: true });
+    const activePermission = await BarcodeScanner.checkPermission({ force: true });
 
-    if (statusRequest.asked) {
+    if (activePermission.asked) {
       // system requested the user for permission during this call
       // only possible when force set to true
     }
 
-    if (statusRequest.granted) {
+    if (activePermission.granted) {
       // the user did grant the permission now
       return true;
     }
 
-    // if (status.denied) {
-    //   // On Android this will happen only when the user checks the box "never ask again"
-    //   BarcodeScanner.openAppSettings();
-    // }
+    if (activePermission.denied) {
+      // On Android this will happen only when the user checks the box "never ask again"
+      BarcodeScanner.openAppSettings();
+    }
 
     // user did not grant the permission, so (s)he must have declined the request
     return false;
   };
 
   // Speed-up subsequent startScanner()
-  const prepareScanner = () => {
+  const preloadScanner = () => {
+    console.log('DEBUG: in prepareScanner()');
     BarcodeScanner.prepare();
+  };
+
+  const showPreview = async (show: boolean) => {
+    // We need to change styling of top-level <body> to transparent for the preview to show through.
+    // Use brute-force js.
+    const body = document.querySelector('body');
+    body?.classList[show ? 'add' : 'remove']?.('scanning');
+    if (show) {
+      BarcodeScanner.hideBackground();
+    }
+  };
+
+  const pretendStartScanner = async () => {
+    showPreview(true);
+    scanActive = true;
   };
 
   const startScanner = async () => {
@@ -75,7 +89,7 @@
 
     if (allowed) {
       scanActive = true;
-      BarcodeScanner.hideBackground();
+      showPreview(true);
       const result = await BarcodeScanner.startScan(
         restrict ? { targetedFormats: [SupportedFormat.QR_CODE] } : {}
       );
@@ -95,35 +109,50 @@
   };
 
   const stopScanner = () => {
+    console.log('DEBUG: in stopScanner()');
     if (scanActive) {
-      BarcodeScanner.showBackground();
+      showPreview(false);
       BarcodeScanner.stopScan();
       scanActive = false;
     }
   };
 
+  onMount(preloadScanner);
   onDestroy(stopScanner);
 </script>
 
 <section>
   <h1>QR Scanner</h1>
   {#if scanActive}
-    <button class="stop-button" on:click={stopScanner}>Stop</button>
-    <div class="scan-box" />
+    <div class="scan-toolbar">
+      <button class="stop-button" on:click={stopScanner}>Stop</button>
+    </div>
+    <div class="scan-frame" />
   {:else}
-    <button class="scan-button" on:click={startScanner}>Scan</button>
+    <div class="scan-button">
+      <button on:click={startScanner}>Scan</button>
+      <button on:click={pretendStartScanner}>Scan Pretend</button>
+    </div>
+    <div><p>{scanResult}</p></div>
   {/if}
-  <div><p>{scanResult}</p></div>
 </section>
 
 <style>
   :global(html) {
     background: transparent;
   }
-  :global(body) {
-    background-image: none;
+  :global(body.scanning) {
+    /* background: none !important; */
+    background: transparent !important;
+    /* background-image: none !important; */
   }
-  .scan-box {
+  :global(main) {
+    margin: 0 !important;
+    max-width: none !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .scan-frame {
     border: 2px solid #fff;
     box-shadow: 0 0 0 100vmax rgb(0, 0, 0, 0.5);
     content: '';
@@ -135,7 +164,8 @@
     transform: translate(-50%, -50%);
     width: 300px;
   }
-  .scan-button {
+  .scan-button,
+  .scan-toolbar {
     margin: 0px;
     position: absolute;
     bottom: 100px;
