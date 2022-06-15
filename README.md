@@ -2,6 +2,10 @@
 
 A cross-platform Desktop / Mobile / Web application starter.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8a3028e8-f005-4617-9190-f54092b6e9c3/deploy-status)](https://app.netlify.com/sites/svelte-blank-20220525/deploys)
+
+[Wev App Demo on Netlify](https://svelte-blank-20220525.netlify.app)
+
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/iva2k/svelte-blank-20220525) Note: Currently StackBlitz is not able to install and build this project.
 
 Built with:
