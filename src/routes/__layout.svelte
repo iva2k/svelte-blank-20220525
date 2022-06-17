@@ -5,6 +5,7 @@
   Framework7.use(Framework7Svelte);
   // ? import '../../node_modules/framework7/framework7-min.css';
   // ? import 'framework7/framework7-min.css';
+  import 'framework7/css';
 
   import Header from '$lib/header/Header.svelte';
   import '../app.css';
