@@ -1,7 +1,8 @@
 <script lang="ts">
   import Header from '$lib/header/Header.svelte';
-  import '../app.css';
+  // import '../app.css';
   import 'carbon-components-svelte/css/all.css';
+  // import '../white-theme.css';
 
   let theme = 'white';
   // let theme = 'g10';
@@ -9,7 +10,7 @@
   // let theme = 'g90';
   // let theme = 'g100';
 
-  $: document.documentElement.setAttribute('theme', theme);
+  $: if (typeof document !== 'undefined') document.documentElement.setAttribute('theme', theme);
 </script>
 
 <Header />
@@ -22,7 +23,9 @@
   <p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
 </footer>
 
-<style>
+<style lang="scss">
+  // @include theme--white();
+
   main {
     flex: 1;
     display: flex;
