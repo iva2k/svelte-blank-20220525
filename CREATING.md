@@ -706,3 +706,5 @@ pnpm install -D node-sass
 Add optimizeImports preprocessor from carbon-preprocess-svelte to `svelte.config.js` (see source in repo).
 
 To get started on custom themes, see <https://github.com/carbon-design-system/carbon-components-svelte/issues/713>.
+
+Dor dynamic theme with SSR, see <https://github.com/carbon-design-system/carbon-components-svelte/issues/651>.
