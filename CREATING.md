@@ -698,5 +698,9 @@ TODO: Find a fix.
 [Carbon for Svelte](https://carbon-components-svelte.onrender.com)
 
 ```bash
-pnpm install -D carbon-components-svelte carbon-icons-svelte
+pnpm install -D carbon-components-svelte carbon-icons-svelte carbon-pictograms-svelte carbon-preprocess-svelte
+
+pnpm install -D node-sass
 ```
+
+Add optimizeImports preprocessor from carbon-preprocess-svelte to `svelte.config.js` (see source in repo).
