@@ -39,7 +39,7 @@
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"
