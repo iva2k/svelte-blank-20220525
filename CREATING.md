@@ -692,3 +692,11 @@ defineCustomElements(window);
 > ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
 TODO: Find a fix.
+
+### Add UI : Carbon
+
+[Carbon for Svelte](https://carbon-components-svelte.onrender.com)
+
+```bash
+pnpm install -D carbon-components-svelte carbon-icons-svelte
+```

@@ -1,6 +1,15 @@
 <script lang="ts">
   import Header from '$lib/header/Header.svelte';
   import '../app.css';
+  import 'carbon-components-svelte/css/all.css';
+
+  let theme = 'white';
+  // let theme = 'g10';
+  // let theme = 'g80';
+  // let theme = 'g90';
+  // let theme = 'g100';
+
+  $: document.documentElement.setAttribute('theme', theme);
 </script>
 
 <Header />

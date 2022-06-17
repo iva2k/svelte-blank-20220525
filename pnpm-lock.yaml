@@ -52,6 +52,8 @@ specifiers:
   '@typescript-eslint/parser': ^5.10.1
   autoprefixer: ^10.4.7
   babel-loader: ^8.2.5
+  carbon-components-svelte: ^0.65.3
+  carbon-icons-svelte: ^11.1.0
   cookie: ^0.4.1
   cross-env: ^7.0.3
   eslint: ^8.12.0
@@ -141,6 +143,8 @@ devDependencies:
   '@typescript-eslint/parser': 5.26.0_utdtartgf6fqqgkivzeynh76la
   autoprefixer: 10.4.7_postcss@8.4.14
   babel-loader: 8.2.5_dzrarqmejens5o5lr5bdn3kdtu
+  carbon-components-svelte: 0.65.3
+  carbon-icons-svelte: 11.1.0
   cross-env: 7.0.3
   eslint: 8.16.0
   eslint-config-prettier: 8.5.0_eslint@8.16.0
@@ -5681,6 +5685,16 @@ packages:
       rsvp: 4.8.5
     dev: true
 
+  /carbon-components-svelte/0.65.3:
+    resolution: {integrity: sha512-UP+DKdqj9R8fCePEcYfEpgzFg5A2MRxVe3hSIklKGOzEfESoObfD9ka+GBEBrH+m8QK4bcaV7yBVOwTWOp2o5g==}
+    dependencies:
+      flatpickr: 4.6.9
+    dev: true
+
+  /carbon-icons-svelte/11.1.0:
+    resolution: {integrity: sha512-yDA1aqgRCuDaY1moxYywKnkGak7rFc5U2n8/hrs8irmIpq9ebKmimLdMCVqZgV4kiZf2Udj/lkKOs/IzHixrnQ==}
+    dev: true
+
   /case-sensitive-paths-webpack-plugin/2.4.0:
     resolution: {integrity: sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==}
     engines: {node: '>=4'}
@@ -7818,6 +7832,10 @@ packages:
     dependencies:
       flatted: 3.2.5
       rimraf: 3.0.2
+    dev: true
+
+  /flatpickr/4.6.9:
+    resolution: {integrity: sha512-F0azNNi8foVWKSF+8X+ZJzz8r9sE1G4hl06RyceIaLvyltKvDl6vqk9Lm/6AUUCi5HWaIjiUbk7UpeE/fOXOpw==}
     dev: true
 
   /flatted/2.0.2:
