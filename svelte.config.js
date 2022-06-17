@@ -3,13 +3,27 @@ import netlify from '@sveltejs/adapter-netlify';
 import vercel from '@sveltejs/adapter-vercel';
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
+
 // import { resolve } from 'path';
+
+// Trying scss @import
+// import path, { dirname } from 'path';
+// import { fileURLToPath } from 'url';
+// const filePath = dirname(fileURLToPath(import.meta.url));
+// const sassPath = `${filePath}/src/lib/style/`;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: preprocess(),
+  //   {
+  //   postcss: true,
+  //   scss: {
+  //     // ? prependData: `@import '${sassPath}_global-imports.scss';`
+  //     includePaths: ['src', 'node_modules']
+  //   }
+  // }
 
   kit: {
     adapter: process.env.VERCEL

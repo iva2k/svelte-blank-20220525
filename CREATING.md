@@ -692,3 +692,14 @@ defineCustomElements(window);
 > ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
 TODO: Find a fix.
+
+### Add UI : Framework7
+
+[Framework7 for Svelte](https://framework7.io/svelte/introduction.html)
+
+```bash
+pnpm install framework7 framework7-svelte
+pnpm install -D node-sass
+```
+
+Add Framework7 init code to `src/routes/__layout.svelte`.
