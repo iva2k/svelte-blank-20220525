@@ -1,6 +1,12 @@
 <script>
   // your script goes here
-  import { Button, Theme, RadioButtonGroup, RadioButton } from 'carbon-components-svelte';
+  import {
+    Button,
+    Theme,
+    RadioButtonGroup,
+    RadioButton,
+    breakpoints
+  } from 'carbon-components-svelte';
   import TrashCan from 'carbon-icons-svelte/lib/TrashCan.svelte';
   import Add from 'carbon-icons-svelte/lib/Add.svelte';
   import Login from 'carbon-icons-svelte/lib/Login.svelte';
@@ -39,3 +45,5 @@
 <Button iconDescription="Login" icon={Login} href="#" />
 
 <Button tooltipPosition="right" tooltipAlignment="end" iconDescription="Tooltip text" icon={Add} />
+
+{JSON.stringify(breakpoints)}
