@@ -10,6 +10,7 @@
     "svelte:prebuild": "echo RUN svelte:prebuild && shx mkdir -p static/vendor/shoelace/themes && shx cp -R node_modules/@shoelace-style/shoelace/dist/themes/*.css static/vendor/shoelace/themes",
     "svelte:dev": " pnpm svelte:prebuild && echo RUN svelte:dev && svelte-kit dev --port 3000",
     "svelte:build": "pnpm svelte:prebuild && echo RUN svelte:build && svelte-kit build && cap sync android",
+    "svelte:build:only": "pnpm svelte:prebuild && echo RUN svelte:build:only && svelte-kit build",
     "package": "svelte-kit package",
     "preview": " svelte-kit preview",
     "prepare": "echo RUN prepare && svelte-kit sync",

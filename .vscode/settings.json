@@ -23,12 +23,17 @@
       ]
     }
   },
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "postcss"],
   "svelte.enable-ts-plugin": true,
   "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "javascript.format.enable": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -37,9 +42,6 @@
   },
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"
