@@ -8,6 +8,7 @@
     "build": "tauri build",
     "svelte:dev": " svelte-kit dev --port 3000",
     "svelte:build": "svelte-kit build && cap sync android",
+    "svelte:build:only": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": " svelte-kit preview",
     "prepare": "svelte-kit sync",
