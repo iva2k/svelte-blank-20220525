@@ -20,7 +20,9 @@
     }
   }
 
-  $: if (document) document.documentElement.classList?.[dark ? 'add' : 'remove']?.('sl-theme-dark');
+  $: if (typeof window !== 'undefined') {
+    document.documentElement.classList?.[dark ? 'add' : 'remove']?.('sl-theme-dark');
+  }
 </script>
 
 <svelte:head>
