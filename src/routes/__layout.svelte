@@ -31,7 +31,13 @@
 </svelte:head>
 
 <Header>
-  <label><input type="checkbox" bind:checked={dark} />Dark</label>
+  <!-- <label><input type="checkbox" bind:checked={dark} />Dark</label> -->
+  <sl-switch
+    checked={dark}
+    on:sl-change={(e) => {
+      dark = e.target.checked;
+    }}>Dark</sl-switch
+  >
 </Header>
 
 <main>
