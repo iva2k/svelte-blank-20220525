@@ -1,9 +1,38 @@
 <script lang="ts">
   import Header from '$lib/header/Header.svelte';
-  import '../app.css';
+  // import '../app.css';
+
+  const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  let dark = darkModeQuery.matches;
+  try {
+    // Chrome & Firefox
+    darkModeQuery.addEventListener('change', (event) => {
+      dark = event.matches;
+    });
+  } catch (e1) {
+    try {
+      // Safari
+      darkModeQuery.addListener((event) => {
+        dark = event.matches;
+      });
+    } catch (e2) {
+      console.error(e2);
+    }
+  }
+
+  $: if (document) document.documentElement.classList?.[dark ? 'add' : 'remove']?.('sl-theme-dark');
 </script>
 
-<Header />
+<svelte:head>
+  <link
+    rel="stylesheet"
+    href="../node_modules/@shoelace-style/shoelace/dist/themes/{dark ? 'dark' : 'light'}.css"
+  />
+</svelte:head>
+
+<Header>
+  <label><input type="checkbox" bind:checked={dark} />Dark</label>
+</Header>
 
 <main>
   <slot />

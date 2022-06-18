@@ -692,3 +692,12 @@ defineCustomElements(window);
 > ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
 TODO: Find a fix.
+
+### Add UI : Shoelace
+
+[Shoelace](https://shoelace.style/)
+
+```bash
+pnpm install @shoelace-style/shoelace
+pnpm install -D node-sass sass
+```
