@@ -1,4 +1,7 @@
 <script lang="ts">
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  import * as _ from '@shoelace-style/shoelace';
+
   import Header from '$lib/header/Header.svelte';
   // import '../app.css';
 
@@ -26,10 +29,7 @@
 </script>
 
 <svelte:head>
-  <link
-    rel="stylesheet"
-    href="../node_modules/@shoelace-style/shoelace/dist/themes/{dark ? 'dark' : 'light'}.css"
-  />
+  <link rel="stylesheet" href="vendor/shoelace/themes/{dark ? 'dark' : 'light'}.css" />
 </svelte:head>
 
 <Header>

@@ -699,5 +699,5 @@ TODO: Find a fix.
 
 ```bash
 pnpm install @shoelace-style/shoelace
-pnpm install -D node-sass sass
+pnpm install -D sass vite-plugin-static-copy shx
 ```
