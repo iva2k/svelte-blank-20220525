@@ -36,7 +36,7 @@
   </nav>
 
   <div class="corner">
-    <!-- TODO put something else here? github link? -->
+    <slot />
   </div>
 </header>
 
