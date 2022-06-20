@@ -4,12 +4,16 @@ import vercel from '@sveltejs/adapter-vercel';
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 // import { resolve } from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: preprocess(),
+  preprocess: preprocess({
+    postcss: true,
+    scss: { includePaths: ['src', 'node_modules'] }
+  }),
 
   kit: {
     adapter: process.env.VERCEL
@@ -35,11 +39,22 @@ const config = {
     },
 
     alias: {
-      // Place to add all aliases. Run 'svelte-kit sync' (or npm run prepare) to update paths in .svelte-kit/tsconfig.json
+      // Place to add all aliases. Run 'svelte-kit sync' (or npm run prepare) to update paths in '.svelte-kit/tsconfig.json'.
       // $components: resolve('./src/lib/components')
     },
 
-    vite: () => ({})
+    vite: () => ({
+      plugins: [
+        // copy is needed for vite to work in svelte:dev (especially under "tauri dev")
+        // All copy commands sould be duplicated in package.json:scripts.svelte:prebuild, for svelte:dev to work correctly.
+        // TODO: DRY violation(between svelte.config.js and package.json) - remove duplication. Create 'assets.js' and use it from both places (for package.json, create 'scripts/copy-assets.js').
+        viteStaticCopy({
+          targets: [
+            // Example: { src: 'node_modules/<module>/dist/*.css', dest: 'static/vendor/<module>/themes' }
+          ]
+        })
+      ]
+    })
   }
 };
 

@@ -2,6 +2,16 @@
 
 This file describes how this app was created.
 
+## Software Mantra
+
+### DRY
+
+DRY - Don't-Repeat-Yourself. Knowledge should always reside in a single place. If code of more than 3 steps is repeated twice, maybe... if thrice - for sure refactor it so it resides in a single place and used from there. DRY is avoiding knowledge duplication (and splintering) and reducing the repetition of code patterns in favor of abstractions and avoiding redundancy. It also can be explained as SST - Single-SourceOf-Truth principle - "every piece of knowledge must have a single, unambiguous, authoritative representation within a system". Code can still be duplicated - it is sometimes a judgement call for balancing with other principles.
+
+### KISS
+
+KISS - Keep-It-Simple,Stupid. Keep the code simple and clear, making it easy to understand. If code needs comments, think hard - the code can probably be simplified by renaming, restructuring, breaking up.
+
 ## Prerequisites
 
 Please follow the [Tauri Getting Started Guide](https://tauri.studio/en/docs/getting-started/intro#steps) to setup your system with the required Rust toolchain.
@@ -358,7 +368,7 @@ Note: As of 2022-0522 Node 17 and 18 have breaking changes (migrated to ssl3):
 
 One solution would be to use node<17.0.0 in package.json "engines" and engine-strict=true in .npmrc, however...
 
-The problem with node<17.0.0 is it breaks playwright which requires node>17. No solution to use playwrigh with node<17 yet. Argh!
+The problem with node<17.0.0 is it breaks playwright which requires node>17. No solution to use playwright with node<17 yet. Argh!
 
 For all other issues, adding `cross-env NODE_OPTIONS=--openssl-legacy-provider` to all affected scripts (storybook ones) in `package.json` is the only practical solution for now (it opens up old security vulnerabilities in legacy openssl).
 
@@ -515,7 +525,7 @@ Add the following to `.vscode/settings.json` file (if not already there):
 }
 ```
 
-### Capacitor
+### Add Capacitor
 
 Capcitor has 2 largely independent parts that we could use:
 
@@ -692,3 +702,9 @@ defineCustomElements(window);
 > ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
 TODO: Find a fix.
+
+### Add Tooling
+
+```bash
+pnpm install -D sass shx vite-plugin-static-copy
+```
