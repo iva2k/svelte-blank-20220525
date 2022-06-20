@@ -692,3 +692,20 @@ defineCustomElements(window);
 > ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
 TODO: Find a fix.
+
+### Add UI : Bootstrap / Sveltestrap
+
+[Sveltestrap](https://sveltestrap.js.org/?path=/story/components--get-started)
+
+[Bootswatch](https://github.com/thomaspark/bootswatch)
+
+```bash
+pnpm install sveltestrap bootswatch bootstrap-icons
+pnpm install -D sass vite-plugin-static-copy shx
+```
+
+Note: When using SSR, import the components from sveltestrap/src:
+
+```js
+import { Card } from 'sveltestrap/src';
+```

@@ -4,12 +4,16 @@ import vercel from '@sveltejs/adapter-vercel';
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 // import { resolve } from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: preprocess(),
+  preprocess: preprocess({
+    postcss: true,
+    scss: { includePaths: ['src', 'node_modules'] }
+  }),
 
   kit: {
     adapter: process.env.VERCEL
@@ -39,7 +43,23 @@ const config = {
       // $components: resolve('./src/lib/components')
     },
 
-    vite: () => ({})
+    vite: () => ({
+      plugins: [
+        // copy is needed for vite to work in svelte:dev (especially under "tauri dev")
+        viteStaticCopy({
+          targets: [
+            {
+              src: 'node_modules/bootswatch/dist/darkly/*.css',
+              dest: 'static/vendor/bootstrap/themes/darkly'
+            },
+            {
+              src: 'node_modules/bootswatch/dist/flatly/*.css',
+              dest: 'static/vendor/bootstrap/themes/flatly'
+            }
+          ]
+        })
+      ]
+    })
   }
 };
 
