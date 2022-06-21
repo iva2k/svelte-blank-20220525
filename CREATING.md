@@ -706,5 +706,5 @@ TODO: Find a fix.
 ### Add Tooling
 
 ```bash
-pnpm install -D sass shx vite-plugin-static-copy
+pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```

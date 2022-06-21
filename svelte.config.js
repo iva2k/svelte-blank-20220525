@@ -5,6 +5,7 @@ import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 // import { resolve } from 'path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import assets from './assets.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -49,9 +50,8 @@ const config = {
         // All copy commands sould be duplicated in package.json:scripts.svelte:prebuild, for svelte:dev to work correctly.
         // TODO: DRY violation(between svelte.config.js and package.json) - remove duplication. Create 'assets.js' and use it from both places (for package.json, create 'scripts/copy-assets.js').
         viteStaticCopy({
-          targets: [
-            // Example: { src: 'node_modules/<module>/dist/*.css', dest: 'static/vendor/<module>/themes' }
-          ]
+          targets: assets,
+          verbose: true
         })
       ]
     })
