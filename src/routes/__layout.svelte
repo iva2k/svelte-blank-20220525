@@ -1,6 +1,7 @@
 <script lang="ts">
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   import * as _ from '@shoelace-style/shoelace';
+  import type { SlSwitch } from '@shoelace-style/shoelace';
 
   import Header from '$lib/header/Header.svelte';
   // import '../app.css';
@@ -26,6 +27,11 @@
   $: if (typeof window !== 'undefined') {
     document.documentElement.classList?.[dark ? 'add' : 'remove']?.('sl-theme-dark');
   }
+
+  /* for SlSwitch */
+  const onChange = (e: Event) => {
+    dark = (e.target as SlSwitch).checked;
+  };
 </script>
 
 <svelte:head>
@@ -34,12 +40,7 @@
 
 <Header>
   <!-- <label><input type="checkbox" bind:checked={dark} />Dark</label> -->
-  <sl-switch
-    checked={dark}
-    on:sl-change={(e) => {
-      dark = e.target.checked;
-    }}>Dark</sl-switch
-  >
+  <sl-switch checked={dark} on:sl-change={onChange}>Dark</sl-switch>
 </Header>
 
 <main>
