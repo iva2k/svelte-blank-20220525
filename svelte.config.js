@@ -54,8 +54,7 @@ const config = {
     vite: () => ({
       plugins: [
         // copy is needed for vite to work in svelte:dev (especially under "tauri dev")
-        // All copy commands sould be duplicated in package.json:scripts.svelte:prebuild, for svelte:dev to work correctly.
-        // TODO: DRY violation(between svelte.config.js and package.json) - remove duplication. Create 'assets.js' and use it from both places (for package.json, create 'scripts/copy-assets.js').
+        // All copy commands are duplicated in package.json:scripts.svelte:prebuild, for svelte:dev to work correctly.
         viteStaticCopy({
           targets: assets,
           verbose: true
