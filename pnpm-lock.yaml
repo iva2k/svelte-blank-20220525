@@ -52,6 +52,8 @@ specifiers:
   '@typescript-eslint/parser': ^5.10.1
   autoprefixer: ^10.4.7
   babel-loader: ^8.2.5
+  bootstrap-icons: ^1.8.3
+  bootswatch: ^5.1.3
   cookie: ^0.4.1
   cpy: ^9.0.1
   cross-env: ^7.0.3
@@ -85,6 +87,7 @@ specifiers:
   svelte-loader: ^3.1.3
   svelte-preprocess: ^4.10.1
   svelte2tsx: ^0.5.10
+  sveltestrap: ^5.9.0
   tslib: ^2.3.1
   typescript: ~4.6.2
   vite: ^2.9.10
@@ -99,7 +102,10 @@ dependencies:
   '@fontsource/fira-mono': 4.5.8
   '@sveltejs/adapter-netlify': 1.0.0-next.64
   '@sveltejs/adapter-vercel': 1.0.0-next.58
+  bootstrap-icons: 1.8.3
+  bootswatch: 5.1.3
   cookie: 0.4.2
+  sveltestrap: 5.9.0_svelte@3.48.0
 
 devDependencies:
   '@babel/core': 7.18.2
@@ -2165,6 +2171,10 @@ packages:
       '@types/node': 17.0.36
       playwright-core: 1.22.2
     dev: true
+
+  /@popperjs/core/2.11.5:
+    resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
+    dev: false
 
   /@prefresh/babel-plugin/0.4.3:
     resolution: {integrity: sha512-fYAWbU1WDSLn108kKY4eDaaeUcnszFqXjgaGKYXNZ5NLulpRTpsrY+Sbfo9q8LDpWrBpqIgzjrwNnvglWI1xNQ==}
@@ -5381,6 +5391,14 @@ packages:
   /boolbase/1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
+
+  /bootstrap-icons/1.8.3:
+    resolution: {integrity: sha512-s5kmttnbq4BXbx3Bwnj39y+t7Vc3blTtyD77W3aYQ1LlNoS3lNbbGvSYhIbg26Im8KmjScyFpHEevlPOBcIDdA==}
+    dev: false
+
+  /bootswatch/5.1.3:
+    resolution: {integrity: sha512-NmZFN6rOCoXWQ/PkzmD8FFWDe24kocX9OXWHNVaLxVVnpqpAzEbMFsf8bAfKwVtpNXibasZCzv09B5fLieAh2g==}
+    dev: false
 
   /boxen/5.1.2:
     resolution: {integrity: sha512-9gYgQKXx+1nP8mP7CzFyaUARhg7D3n1dF/FnErWmu9l6JvGpNUN278h0aSb+QjoiKSWG+iZ3uHrcqk0qrY9RQQ==}
@@ -12808,7 +12826,6 @@ packages:
   /svelte/3.48.0:
     resolution: {integrity: sha512-fN2YRm/bGumvjUpu6yI3BpvZnpIm9I6A7HR4oUNYd7ggYyIwSA/BX7DJ+UXXffLp6XNcUijyLvttbPVCYa/3xQ==}
     engines: {node: '>= 8'}
-    dev: true
 
   /svelte2tsx/0.5.10_wwvk7nlptlrqo2czohjtk6eiqm:
     resolution: {integrity: sha512-nokQ0HTTWMcNX6tLrDLiOmJCuqjKZU9nCZ6/mVuCL3nusXdbp+9nv69VG2pCy7uQC66kV4Ls+j0WfvvJuGVnkg==}
@@ -12843,6 +12860,15 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /sveltestrap/5.9.0_svelte@3.48.0:
+    resolution: {integrity: sha512-ZSiYKYrKhDMhhbamnAFK3RK/uqUdcLgjae5Fk3GYdv6Ccth0tN2y6vSg+Vp/PBTYc51u08ZwnYvt8SfWSRNCMA==}
+    peerDependencies:
+      svelte: ^3.29.0
+    dependencies:
+      '@popperjs/core': 2.11.5
+      svelte: 3.48.0
+    dev: false
 
   /svg-tags/1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
