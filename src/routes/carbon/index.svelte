@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   // your script goes here
   import {
     Button,
@@ -7,11 +7,12 @@
     RadioButton,
     breakpoints
   } from 'carbon-components-svelte';
+  import type { CarbonTheme } from 'carbon-components-svelte/types/Theme/Theme.svelte.js'; // TODO Fix not working import type from 'carbon-components-svelte'.
   import TrashCan from 'carbon-icons-svelte/lib/TrashCan.svelte';
   import Add from 'carbon-icons-svelte/lib/Add.svelte';
   import Login from 'carbon-icons-svelte/lib/Login.svelte';
 
-  let theme = 'g90';
+  let theme: CarbonTheme = 'g90';
 </script>
 
 <Theme bind:theme persist persistKey="__carbon-theme" />
