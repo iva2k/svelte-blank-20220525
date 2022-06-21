@@ -4,6 +4,5 @@
 </script>
 
 <div>
-  <PureHeader pathname={$page.url.pathname} />
-  <!-- <PureHeader pathname={'/'} /> -->
+  <PureHeader pathname={$page.url.pathname}><slot /></PureHeader>
 </div>
