@@ -146,8 +146,8 @@
   {#if scanActive}
     <div class="scan-toolbar">
       <button class="stop-button" on:click={stopScanner}>Stop</button>
-      <button class="torch-button" on:click={torchOn}>Light On</button>
-      <button class="torch-button" on:click={torchOff}>Light Off</button>
+      <button class="torch-button" on:click={torchOn} disabled={torchActive}>Light On</button>
+      <button class="torch-button" on:click={torchOff} disabled={!torchActive}>Light Off</button>
     </div>
     <div class="scan-frame" />
   {:else}

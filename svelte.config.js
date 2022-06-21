@@ -5,6 +5,7 @@ import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 // import { resolve } from 'path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import assets from './assets.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -39,24 +40,18 @@ const config = {
     },
 
     alias: {
-      // Place to add all aliases. Run 'svelte-kit sync' (or npm run prepare) to update paths in .svelte-kit/tsconfig.json
+      // Place to add all aliases. Run 'svelte-kit sync' (or npm run prepare) to update paths in '.svelte-kit/tsconfig.json'.
       // $components: resolve('./src/lib/components')
     },
 
     vite: () => ({
       plugins: [
         // copy is needed for vite to work in svelte:dev (especially under "tauri dev")
+        // All copy commands sould be duplicated in package.json:scripts.svelte:prebuild, for svelte:dev to work correctly.
+        // TODO: DRY violation(between svelte.config.js and package.json) - remove duplication. Create 'assets.js' and use it from both places (for package.json, create 'scripts/copy-assets.js').
         viteStaticCopy({
-          targets: [
-            {
-              src: 'node_modules/bootswatch/dist/darkly/*.css',
-              dest: 'static/vendor/bootstrap/themes/darkly'
-            },
-            {
-              src: 'node_modules/bootswatch/dist/flatly/*.css',
-              dest: 'static/vendor/bootstrap/themes/flatly'
-            }
-          ]
+          targets: assets,
+          verbose: true
         })
       ]
     })
