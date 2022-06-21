@@ -708,3 +708,14 @@ TODO: Find a fix.
 ```bash
 pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```
+
+### Add UI : Framework7
+
+[Framework7 for Svelte](https://framework7.io/svelte/introduction.html)
+
+```bash
+pnpm install framework7 framework7-svelte
+pnpm install -D node-sass
+```
+
+Add Framework7 init code to `src/routes/__layout.svelte`.
