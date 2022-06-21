@@ -1,6 +1,7 @@
 <script lang="ts">
   // Framework7 common init
-  import Framework7 from 'framework7';
+  /// <refernce types="../../node_modules/framework7/framework7-bundle"/>
+  import Framework7 from '../../node_modules/framework7/framework7-bundle.esm.js';
   import Framework7Svelte from 'framework7-svelte';
   Framework7.use(Framework7Svelte);
   // ? import '../../node_modules/framework7/framework7-min.css';
@@ -9,7 +10,7 @@
   import '../../node_modules/framework7/framework7-bundle.min.css';
 
   import Header from '$lib/header/Header.svelte';
-  import '../app.css';
+  // import '../app.css';
 </script>
 
 <Header />
