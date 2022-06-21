@@ -708,3 +708,12 @@ TODO: Find a fix.
 ```bash
 pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```
+
+### Add UI : Shoelace
+
+[Shoelace](https://shoelace.style/)
+
+```bash
+pnpm install @shoelace-style/shoelace
+pnpm install -D sass vite-plugin-static-copy shx
+```
