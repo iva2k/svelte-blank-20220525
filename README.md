@@ -102,5 +102,5 @@ There are many UI frameworks that work with Svelte / SvelteKit, and choice can b
 | [ui-carbon](../../tree/ui-carbon)         | Carbon       | |
 | [ui-framework7](../../tree/ui-framework7) | Framework7   | |
 | [ui-shoelace](../../tree/ui-shoelace)     | Shoelace     | |
-|                                                                  | TailwindCSS  | Not yet, I'm on the fence. |
-|                                                                  | Ionic        | |
+|                                           | TailwindCSS  | Not yet, I'm on the fence. |
+|                                           | Ionic        | |
