@@ -1,4 +1,4 @@
-# Blank Svelte Kit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
+# Blank SvelteKit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
 
 A cross-platform Desktop / Mobile / Web application starter.
 
@@ -88,3 +88,19 @@ iOS platform is not installed in this repo, but can easily be added. See [CREATI
 ## How This App Was Created
 
 See [CREATING](./CREATING.md).
+
+## Styling / UI Components
+
+There are many UI frameworks that work with Svelte / SvelteKit, and choice can be daunting. This project has few frameworks integrated in separate git branches:
+
+<!-- prettier-ignore -->
+| Branch | Ui Framework | Notes |
+|-|-|-|
+| [ui-agnostic](/iva2k/svelte-blank-20220525/tree/ui-agnostic)     | AgnosticUI   | |
+| [ui-bootstrap](../../tree/ui-bootstrap)   | Bootstrap    | |
+| [ui-bulma](/../ui-bulma)           | Bulma        | |
+| [ui-carbon](/iva2k/svelte-blank-20220525/tree/ui-carbon)         | Carbon       | |
+| [ui-framework7](/iva2k/svelte-blank-20220525/tree/ui-framework7) | Framework7   | |
+| [ui-shoelace](/iva2k/svelte-blank-20220525/tree/ui-shoelace)     | Shoelace     | |
+|                                                                  | TailwindCSS  | Not yet, I'm on the fence. |
+|                                                                  | Ionic        | |
