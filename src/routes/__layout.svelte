@@ -1,6 +1,7 @@
 <script lang="ts">
   import Header from '$lib/header/Header.svelte';
-  import '../app.css';
+  // import '../app.css';
+  import 'agnostic-svelte/css/common.min.css';
 </script>
 
 <Header />

@@ -708,3 +708,9 @@ TODO: Find a fix.
 ```bash
 pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```
+
+### Add UI : Agnostic
+
+```bash
+pnpm install agnostic-svelte
+```
