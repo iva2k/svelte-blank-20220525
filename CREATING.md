@@ -715,7 +715,8 @@ pnpm install -D glob sass shx vite-plugin-static-copy cpy
 
 ```bash
 pnpm install framework7 framework7-svelte
-pnpm install -D node-sass
 ```
 
-Add Framework7 init code to `src/routes/__layout.svelte`.
+Insert code that loads the framework into `src/routes/__layout.svelte` (see source in repo).
+
+Add example page `src/routes/framework7/index.svelte` (see code in repo).
