@@ -716,3 +716,7 @@ pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```bash
 pnpm install bulma
 ```
+
+Insert code that loads the framework into `src/routes/__layout.svelte` (see source).
+
+Add example page `src/routes/bulma/index.svelte` (see code).
