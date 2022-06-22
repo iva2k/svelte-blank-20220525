@@ -1,4 +1,4 @@
-# Blank Svelte Kit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
+# Blank SvelteKit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
 
 A cross-platform Desktop / Mobile / Web application starter.
 
@@ -88,3 +88,30 @@ iOS platform is not installed in this repo, but can easily be added. See [CREATI
 ## How This App Was Created
 
 See [CREATING](./CREATING.md).
+
+## Styling / UI Components
+
+There are many UI frameworks that work with Svelte / SvelteKit, and choice can be daunting.
+
+<https://bestofsvelte.com/t/ui-library>
+
+This project has few frameworks integrated in separate git branches:
+
+<!-- prettier-ignore -->
+| Git Branch | UI Framework | Dark Theme Switch | Notes |
+|-|-|:-:|-|
+| [ui-agnostic](../../tree/ui-agnostic)     | [AgnosticUI](https://github.com/AgnosticUI/agnosticui) | Y | |
+| [ui-bootstrap](../../tree/ui-bootstrap)   | [Bootstrap](https://github.com/twbs/bootstrap) | Y | [Sveltestrap](https://github.com/bestguy/sveltestrap), Themes from [Bootswatch](https://github.com/thomaspark/bootswatch) |
+| [ui-bulma](../../tree/ui-bulma)           | [Bulma](https://bulma.io/) | N | |
+| [ui-carbon](../../tree/ui-carbon)         | [Carbon](https://carbon-components-svelte.onrender.com/) | Y | |
+| [ui-framework7](../../tree/ui-framework7) | [Framework7](https://framework7.io/svelte/introduction.html) | N | Incomplete and currently broken |
+| [ui-shoelace](../../tree/ui-shoelace)     | [Shoelace](https://shoelace.style/) | Y | |
+|                                           | Smelte       |   | Material + TailwindCSS |
+|                                           | TailwindCSS  |   | May use components - [Flowbite](https://flowbite.com/docs/getting-started/introduction/) |
+|                                           | [Ionic](https://ionicframework.com) |   | See good [example](https://github.com/Tommertom/svelte-ionic-app) |
+|                                           | [Chota](https://jenil.github.io/chota/) |   | [SvelteChota](https://alexxnb.github.io/svelte-chota/why_chota) |
+| | [Svelterial](https://github.com/svelterialjs/svelterial) |   | [Svelte Materialify](https://github.com/TheComputerM/svelte-materialify) is on a deprecation path. |
+| | [Tachyons](https://tachyons.io) |   | |
+| | [Svelte Material](https://sveltematerialui.com/) |   | |
+| | [Svelte Flat UI](https://svelteui.js.org/#/) |   | |
+| | [Attractions](https://github.com/illright/attractions) |   | |

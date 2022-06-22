@@ -1,4 +1,4 @@
-# Creating: Blank Svelte Kit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
+# Creating: Blank SvelteKit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
 
 This file describes how this app was created.
 
