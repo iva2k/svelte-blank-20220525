@@ -724,3 +724,7 @@ Note: When using SSR, import the components from sveltestrap/src:
 ```js
 import { Card } from 'sveltestrap/src';
 ```
+
+Insert code that loads the framework and adds dark theme toggle into `src/routes/__layout.svelte` (see source).
+
+Add example page `src/routes/bootstrap/index.svelte` (see code).
