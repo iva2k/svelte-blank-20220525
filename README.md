@@ -91,7 +91,11 @@ See [CREATING](./CREATING.md).
 
 ## Styling / UI Components
 
-There are many UI frameworks that work with Svelte / SvelteKit, and choice can be daunting. This project has few frameworks integrated in separate git branches:
+There are many UI frameworks that work with Svelte / SvelteKit, and choice can be daunting.
+
+<https://bestofsvelte.com/t/ui-library>
+
+This project has few frameworks integrated in separate git branches:
 
 <!-- prettier-ignore -->
 | Branch | Ui Framework | Notes |
