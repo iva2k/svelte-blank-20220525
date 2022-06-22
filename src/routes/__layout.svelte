@@ -50,17 +50,15 @@
   };
 </script>
 
-<Header>
+<Header --corner-right-width="6em">
   <!-- <Input id="c1" type="switch" label="Dark" bind:checked={dark} on:change={onToggleDarkMode} /> -->
-  <div>
-    <Switch
-      id="switch-1"
-      label={checkedValue ? '🔆' : '🌙'}
-      labelPosition="right"
-      bind:isChecked={checkedValue}
-      on:change={onToggleDarkMode}
-    />
-  </div>
+  <Switch
+    id="switch-1"
+    label={checkedValue ? '🔆' : '🌙'}
+    labelPosition="left"
+    bind:isChecked={checkedValue}
+    on:change={onToggleDarkMode}
+  />
 </Header>
 
 <main>
