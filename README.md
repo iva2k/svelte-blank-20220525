@@ -108,7 +108,7 @@ This project has few frameworks integrated in separate git branches:
 | [ui-shoelace](../../tree/ui-shoelace)     | [Shoelace](https://shoelace.style/) | Y | |
 |                                           | Smelte       |   | Material + TailwindCSS |
 |                                           | TailwindCSS  |   | |
-|                                           | [Ionic](https://ionicframework.com) |   | |
+|                                           | [Ionic](https://ionicframework.com) |   | See good [example](https://github.com/Tommertom/svelte-ionic-app) |
 |                                           | [Chota](https://jenil.github.io/chota/) |   | [SvelteChota](https://alexxnb.github.io/svelte-chota/why_chota) |
 | | [Svelterial](https://github.com/svelterialjs/svelterial) |   | [Svelte Materialify](https://github.com/TheComputerM/svelte-materialify) is on a deprecation path. |
 | | [Tachyons](https://tachyons.io) |   | |
