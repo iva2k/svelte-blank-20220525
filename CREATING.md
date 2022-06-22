@@ -708,3 +708,11 @@ TODO: Find a fix.
 ```bash
 pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```
+
+### Add UI : Bulma
+
+[Bulma](https://bulma.io/)
+
+```bash
+pnpm install bulma
+```

@@ -1,7 +1,26 @@
 <script lang="ts">
   import Header from '$lib/header/Header.svelte';
-  import '../app.css';
+  // import '../app.css';
+  // import '../../node_modules/bulma/css/bulma.min.css';
+  import '../../node_modules/bulma/css/bulma.css';
 </script>
+
+<svelte:head>
+  <!-- <link
+    rel="stylesheet"
+    href="vendor/bulma/themes/{dark ? 'darkly' : 'flatly'}/bulma.min.css"
+  /> -->
+
+  <link
+    rel="stylesheet"
+    href="https://bulma.io/vendor/fontawesome-free-5.15.2-web/css/all.min.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+</svelte:head>
 
 <Header />
 
