@@ -715,8 +715,6 @@ pnpm install -D glob sass shx vite-plugin-static-copy cpy
 
 ```bash
 pnpm install -D carbon-components-svelte carbon-icons-svelte carbon-pictograms-svelte carbon-preprocess-svelte
-
-pnpm install -D node-sass
 ```
 
 Add optimizeImports preprocessor from carbon-preprocess-svelte to `svelte.config.js` (see source in repo).
@@ -724,3 +722,7 @@ Add optimizeImports preprocessor from carbon-preprocess-svelte to `svelte.config
 To get started on custom themes, see <https://github.com/carbon-design-system/carbon-components-svelte/issues/713>.
 
 For dynamic theme with SSR, see <https://github.com/carbon-design-system/carbon-components-svelte/issues/651>.
+
+Insert code that loads the framework and adds dark theme toggle into `src/routes/__layout.svelte` (see source in repo).
+
+Add example page `src/routes/carbon/index.svelte` (see code in repo).
