@@ -98,13 +98,20 @@ There are many UI frameworks that work with Svelte / SvelteKit, and choice can b
 This project has few frameworks integrated in separate git branches:
 
 <!-- prettier-ignore -->
-| Branch | Ui Framework | Notes |
-|-|-|-|
-| [ui-agnostic](../../tree/ui-agnostic)     | AgnosticUI   | |
-| [ui-bootstrap](../../tree/ui-bootstrap)   | Bootstrap    | |
-| [ui-bulma](../../tree/ui-bulma)           | Bulma        | |
-| [ui-carbon](../../tree/ui-carbon)         | Carbon       | |
-| [ui-framework7](../../tree/ui-framework7) | Framework7   | |
-| [ui-shoelace](../../tree/ui-shoelace)     | Shoelace     | |
-|                                           | TailwindCSS  | Not yet, I'm on the fence. |
-|                                           | Ionic        | |
+| Git Branch | UI Framework | Dark Theme Switch | Notes |
+|-|-|:-:|-|
+| [ui-agnostic](../../tree/ui-agnostic)     | [AgnosticUI](https://github.com/AgnosticUI/agnosticui) | Y | |
+| [ui-bootstrap](../../tree/ui-bootstrap)   | [Bootstrap](https://github.com/twbs/bootstrap) | Y | [Sveltestrap](https://github.com/bestguy/sveltestrap), Themes from [Bootswatch](https://github.com/thomaspark/bootswatch) |
+| [ui-bulma](../../tree/ui-bulma)           | [Bulma](https://bulma.io/) | N | |
+| [ui-carbon](../../tree/ui-carbon)         | [Carbon](https://carbon-components-svelte.onrender.com/) | Y | |
+| [ui-framework7](../../tree/ui-framework7) | [Framework7](https://framework7.io/svelte/introduction.html) | N | Incomplete and currently broken |
+| [ui-shoelace](../../tree/ui-shoelace)     | [Shoelace](https://shoelace.style/) | Y | |
+|                                           | Smelte       |   | Material + TailwindCSS |
+|                                           | TailwindCSS  |   | |
+|                                           | [Ionic](https://ionicframework.com) |   | |
+|                                           | [Chota](https://jenil.github.io/chota/) |   | [SvelteChota](https://alexxnb.github.io/svelte-chota/why_chota) |
+| | [Svelterial](https://github.com/svelterialjs/svelterial) |   | [Svelte Materialify](https://github.com/TheComputerM/svelte-materialify) is on a deprecation path. |
+| | [Tachyons](https://tachyons.io) |   | |
+| | [Svelte Material](https://sveltematerialui.com/) |   | |
+| | [Svelte Flat UI](https://svelteui.js.org/#/) |   | |
+| | [Attractions](https://github.com/illright/attractions) |   | |
