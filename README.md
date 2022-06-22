@@ -96,11 +96,11 @@ There are many UI frameworks that work with Svelte / SvelteKit, and choice can b
 <!-- prettier-ignore -->
 | Branch | Ui Framework | Notes |
 |-|-|-|
-| [ui-agnostic](/iva2k/svelte-blank-20220525/tree/ui-agnostic)     | AgnosticUI   | |
+| [ui-agnostic](../../tree/ui-agnostic)     | AgnosticUI   | |
 | [ui-bootstrap](../../tree/ui-bootstrap)   | Bootstrap    | |
-| [ui-bulma](/../ui-bulma)           | Bulma        | |
-| [ui-carbon](/iva2k/svelte-blank-20220525/tree/ui-carbon)         | Carbon       | |
-| [ui-framework7](/iva2k/svelte-blank-20220525/tree/ui-framework7) | Framework7   | |
-| [ui-shoelace](/iva2k/svelte-blank-20220525/tree/ui-shoelace)     | Shoelace     | |
+| [ui-bulma](../../tree/ui-bulma)           | Bulma        | |
+| [ui-carbon](../../tree/ui-carbon)         | Carbon       | |
+| [ui-framework7](../../tree/ui-framework7) | Framework7   | |
+| [ui-shoelace](../../tree/ui-shoelace)     | Shoelace     | |
 |                                                                  | TailwindCSS  | Not yet, I'm on the fence. |
 |                                                                  | Ionic        | |
