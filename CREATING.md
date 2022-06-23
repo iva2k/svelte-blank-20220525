@@ -717,6 +717,8 @@ pnpm install -D glob sass shx vite-plugin-static-copy cpy
 pnpm install bulma
 ```
 
+Note: This implementation is not using [svelma](https://github.com/c0bra/svelma), which adds component wrappers over regular HTML elements. Bulma styles basic HTML directly without any help.
+
 Insert code that loads the framework into `src/routes/__layout.svelte` (see source).
 
 Add example page `src/routes/bulma/index.svelte` (see code).
