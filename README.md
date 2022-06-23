@@ -95,6 +95,8 @@ There are many UI frameworks that work with Svelte / SvelteKit, and choice can b
 
 <https://bestofsvelte.com/t/ui-library>
 
+<https://sveltesociety.dev/components/>
+
 This project has few frameworks integrated in separate git branches:
 
 <!-- prettier-ignore -->
