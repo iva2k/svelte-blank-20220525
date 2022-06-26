@@ -129,5 +129,6 @@
   "exports": {
     ".": "./header/Header.svelte"
   },
+  "types": "./header/Header.svelte.d.ts",
   "type": "module"
 }
