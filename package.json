@@ -121,6 +121,7 @@
     "vite-plugin-static-copy": "^0.5.1",
     "webpack": "^5.73.0"
   },
+  "packageManager": "pnpm@7.1.9",
   "engines": {
     "npm": ">=7.0.0",
     "pnpm": ">=7.1.9",
