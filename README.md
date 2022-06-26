@@ -3,11 +3,9 @@
 A cross-platform Desktop / Mobile / Web application starter.
 
 <!-- prettier-ignore -->
-| [![Netlify Status](https://api.netlify.com/api/v1/badges/8a3028e8-f005-4617-9190-f54092b6e9c3/deploy-status)](https://app.netlify.com/sites/svelte-blank-20220525/deploys) |  [![Vercel Status](https://shields.io/github/deployments/iva2k/svelte-blank-20220525/production?style=flat&label=vercel&logo=vercel)](https://vercel.com/iva2k/svelte-blank-20220525) |[![Open in Visual Studio Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://open.vscode.dev/iva2k/svelte-blank-20220525) |
-|:-:|:-:|:-:|
-| [App Demo](https://svelte-blank-20220525.netlify.app) |  | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/iva2k/svelte-blank-20220525) |
-
-Note: StackBlitz is not able to install and build this project.
+| [![Netlify Status](https://api.netlify.com/api/v1/badges/8a3028e8-f005-4617-9190-f54092b6e9c3/deploy-status)](https://app.netlify.com/sites/svelte-blank-20220525/deploys) |  [![Vercel Status](https://shields.io/github/deployments/iva2k/svelte-blank-20220525/production?style=flat&label=vercel&logo=vercel)](https://vercel.com/iva2k/svelte-blank-20220525) |
+|:-:|:-:|
+| [App Demo](https://svelte-blank-20220525.netlify.app) |  |
 
 Note: Vercel is not able to install and build this project (Vercel does not support Node 18 yet).
 
@@ -23,19 +21,38 @@ Built with:
 - [Stylelint](https://stylelint.io/) - A mighty, modern CSS linter
 - [Postcss](https://postcss.org/) - Transforming styles with JS plugins
 
+## Install
+
+### Start Your App
+
+To start your app from this project as a template:
+
+```bash
+mkdir my-app && cd my-app
+npx degit iva2k/svelte-blank-20220525#ui-agnostic
+# or
+npx degit iva2k/svelte-blank-20220525#ui-bootstrap
+# or
+npx degit iva2k/svelte-blank-20220525#ui-bulma
+# or ... (see other UI framework branches below)
+```
+
+### Or Clone the Repo
+
+```bash
+git clone https://github.com/iva2k/svelte-blank-20220525.git
+cd svelte-blank-20220525
+```
+
 ## Developing Locally
 
 Please follow the [Tauri Getting Started Guide](https://tauri.studio/en/docs/getting-started/intro#steps) to setup your system with the required Rust toolchain.
 
 This application is built like a typical Node.js application. However, instead of `npm`, [`pnpm`](https://pnpm.io/) is used for package management.
 
-> **Note:** You may use `yarn` or `npm`, but only a `pnpm` lockfile is included.
-
-### Get repo
+> **Note:** You may use `yarn` or `npm`, but only a `pnpm` lockfile is included, and some scripts call `pnpm` directly and need to be changed to your package manager.
 
 ```bash
-git clone https://github.com/iva2k/svelte-blank-20220525.git
-cd svelte-blank-20220525
 pnpm install # or npm install
 ```
 
@@ -97,7 +114,7 @@ There are many UI frameworks that work with Svelte / SvelteKit, and choice can b
 
 <https://sveltesociety.dev/components/>
 
-This project has few frameworks integrated in separate git branches:
+This project has few of the top frameworks integrated in separate git branches:
 
 <!-- prettier-ignore -->
 | Git Branch | UI Framework | Dark Theme Switch | Notes |
