@@ -126,5 +126,8 @@
     "pnpm": ">=7.1.9",
     "node": ">=18.0.0"
   },
+  "exports": {
+    ".": "./header/Header.svelte"
+  },
   "type": "module"
 }
