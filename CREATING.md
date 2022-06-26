@@ -180,14 +180,6 @@ For types, despite the Svelte-kit documentation stating that emitTypes is enable
   }
 ```
 
-### Issue with node-pre-gyp deprecated
-
-pnpm install
-
-> WARN  deprecated node-pre-gyp@0.13.0: Please upgrade to @mapbox/node-pre-gyp: the non-scoped node-pre-gyp package is deprecated and only the @mapbox scoped package will re
-
-TODO: Find a fix.
-
 ## Additions
 
 ### Remove Default Server
