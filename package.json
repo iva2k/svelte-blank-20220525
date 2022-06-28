@@ -16,6 +16,7 @@
     "prepare": "echo RUN prepare && svelte-kit sync",
     "tauri": "tauri",
     "test": "playwright test",
+    "test:debug": "playwright test --headed --timeout=0",
     "check": "svelte-check --fail-on-warnings --tsconfig ./tsconfig.json",
     "check:watch": " svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
