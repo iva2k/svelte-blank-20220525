@@ -59,10 +59,6 @@ Fix:
 pnpm install -D svelte2tsx
 ```
 
-### Issue with Playwright VSCode Extension
-
-Issue: <https://github.com/microsoft/playwright-vscode/issues/174> fixed in <https://github.com/microsoft/playwright-vscode/pull/178>.
-
 ### Issue with imports linting
 
 <https://github.com/sveltejs/kit/issues/1560>
