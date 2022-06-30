@@ -407,6 +407,16 @@ Finally, got Storybook working with stories (.tsx, not .svelte) for Counter and 
 
 That references a bug that has been fixed, however, I'm still getting Storybook not taking .svelte components with Typescript.
 
+#### @prefresh/core
+
+```bash
+pnpm svelte:build
+```
+
+> @prefresh/core doesn't appear to be written in CJS, but also doesn't appear to be a valid ES module (i.e. it doesn't have "type": "module" or an .mjs extension for the entry point). Please contact the package author to fix
+
+TODO: Find a fix.
+
 ### Add Prettier & ESLint Rules, Stylelint, Postcss and Autoprefixer
 
 ESLint and Prettier is already part of Svelte Kit installation, so some of the packages below are already present.
