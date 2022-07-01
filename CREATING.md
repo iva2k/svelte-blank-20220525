@@ -303,6 +303,8 @@ pnpm i -D @storybook/preview-web @storybook/addon-backgrounds @storybook/addon-m
 pnpm i -D @prefresh/vite @prefresh/core preact @mdx-js/preact
 ```
 
+One might ask - why add react et.al.? Storybook uses `react` & `react-dom` for its UI. Some of @storybook/addon-\* packages list them as peer dependencies, but it does not work well in npm package mess and breaks things. Current solution is to add react and all related packages as devDependencies.
+
 Disable Storybook telemetry:
 
 ```js
