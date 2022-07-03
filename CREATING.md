@@ -739,3 +739,13 @@ TODO: (when needed) Find a fix.
 ```bash
 pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```
+
+### Add UI : Agnostic
+
+```bash
+pnpm install agnostic-svelte
+```
+
+Insert code that loads the framework and adds dark theme toggle into `src/routes/__layout.svelte` (see source).
+
+Add example page `src/routes/agnostic/index.svelte` (see code).
