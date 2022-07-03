@@ -1,5 +1,6 @@
 {
   "name": "svelte-blank-20220525",
+  "description": "",
   "version": "0.0.1",
   "scripts": {
     "prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skipping pnpm install",

@@ -397,7 +397,7 @@ For all other issues, adding `cross-env NODE_OPTIONS=--openssl-legacy-provider` 
 pnpm i -D cross-env
 ```
 
-TODO: When there's a fix for node>17 and storybook / webpack@4, remove `NODE_OPTIONS=--openssl-legacy-provider` from `package.json`.
+TODO: (blocked by upstream) When there's a fix for node>17 and storybook / webpack@4, remove `NODE_OPTIONS=--openssl-legacy-provider` from `package.json`.
 
 #### \*.stories.svelte files
 
@@ -419,7 +419,7 @@ pnpm svelte:build
 
 > @prefresh/core doesn't appear to be written in CJS, but also doesn't appear to be a valid ES module (i.e. it doesn't have "type": "module" or an .mjs extension for the entry point). Please contact the package author to fix
 
-TODO: Find a fix.
+TODO: (blocked by upstream) Find a fix.
 
 ### Add Prettier & ESLint Rules, Stylelint, Postcss and Autoprefixer
 
@@ -713,9 +713,9 @@ pnpm install @ionic/pwa-elements
 A typical installation involves importing the package and registering the elements, or adding a script tag to the \<head\> of the index.html for the app
 
 ```js
-// TODO: Convert this code snippet to Svelte/Svelte-kit. Somehow it should get into .svelte-kit/**/start.js
+// TODO: (when needed) Convert this code snippet from React to Svelte/Svelte-kit. Somehow it should get into .svelte-kit/**/start.js
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-ReactDOM.render(<App />, document.getElementById('root')); // TODO: Change to svelte
+ReactDOM.render(<App />, document.getElementById('root'));
 // Call the element loader after the app has been rendered the first time
 defineCustomElements(window);
 ```
@@ -732,7 +732,7 @@ defineCustomElements(window);
 
 > ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
-TODO: Find a fix.
+TODO: (when needed) Find a fix.
 
 ### Add Tooling
 
