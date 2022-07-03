@@ -29,6 +29,10 @@ const config = {
           // precompress: false
         }),
 
+    package: {
+      emitTypes: true
+    },
+
     prerender: {
       // This can be false when using a fallback (i.e. SPA mode)
       default: true
