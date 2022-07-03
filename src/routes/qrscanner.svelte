@@ -16,7 +16,7 @@
   const checkPermission = async () => {
     // check if user already granted permission
     const passivePermission = await BarcodeScanner.checkPermission({ force: false });
-    // TODO: Catch  BarcodeScanner.checkPermission() thrown errors (e.g. for platforms that are not yet supported, such as web).
+    // TODO: (when needed) Catch  BarcodeScanner.checkPermission() thrown errors (e.g. for platforms that are not yet supported, such as web).
 
     if (passivePermission.granted) {
       // user granted permission before
