@@ -53,6 +53,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.30.0
   autoprefixer: ^10.4.7
   babel-loader: ^8.2.5
+  bulma: ^0.9.4
   cookie: ^0.5.0
   cpy: ^9.0.1
   cross-env: ^7.0.3
@@ -100,6 +101,7 @@ dependencies:
   '@fontsource/fira-mono': 4.5.8
   '@sveltejs/adapter-netlify': 1.0.0-next.64
   '@sveltejs/adapter-vercel': 1.0.0-next.58
+  bulma: 0.9.4
   cookie: 0.5.0
 
 devDependencies:
@@ -5645,6 +5647,10 @@ packages:
   /builtin-status-codes/3.0.0:
     resolution: {integrity: sha512-HpGFw18DgFWlncDfjTa2rcQ4W88O1mC8e8yZ2AvQY5KDaktSTwo+KRf6nHK6FRI5FyRyb/5T6+TSxfP7QyGsmQ==}
     dev: true
+
+  /bulma/0.9.4:
+    resolution: {integrity: sha512-86FlT5+1GrsgKbPLRRY7cGDg8fsJiP/jzTqXXVqiUZZ2aZT8uemEOHlU1CDU+TxklPEZ11HZNNWclRBBecP4CQ==}
+    dev: false
 
   /bytes/3.0.0:
     resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==}
