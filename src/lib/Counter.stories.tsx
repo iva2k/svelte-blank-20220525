@@ -28,7 +28,7 @@ type argParams = {
 const Template: Story = ((args: argParams) => ({
   Component: Counter,
   props: args
-  // TODO: This typescript gymnastics does not make any sense whatsoever, but it makes TS errors go away.
+  // TODO: (later) Need a better fix. This typescript gymnastics does not make any sense whatsoever, but it makes TS errors go away.
 })) as unknown as SvelteComponentTyped<StoryProps, Record<string, never>, Slots>;
 
 export const Primary: Story = Template.bind({});
