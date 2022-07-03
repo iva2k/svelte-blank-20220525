@@ -739,3 +739,23 @@ TODO: (when needed) Find a fix.
 ```bash
 pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```
+
+### Add UI : Bootstrap / Sveltestrap
+
+[Sveltestrap](https://sveltestrap.js.org/?path=/story/components--get-started)
+
+[Bootswatch](https://github.com/thomaspark/bootswatch)
+
+```bash
+pnpm install sveltestrap bootswatch bootstrap-icons
+```
+
+Note: When using SSR, import the components from sveltestrap/src:
+
+```js
+import { Card } from 'sveltestrap/src';
+```
+
+Insert code that loads the framework and adds dark theme toggle into `src/routes/__layout.svelte` (see source).
+
+Add example page `src/routes/bootstrap/index.svelte` (see code).
