@@ -20,7 +20,17 @@ module.exports = {
     '@storybook/addon-interactions'
   ],
   core: {
-    builder: '@storybook/builder-vite',
+    // we still have to use webpack in build mode because of babel-runtime issues of rollup
+    // https://github.com/eirslett/storybook-builder-vite/issues/143
+    builder: process.env.STORYBOOK_BUILD
+      ? {
+          name: 'webpack5',
+          options: {
+            lazyCompilation: true,
+            fsCache: true
+          }
+        }
+      : '@storybook/builder-vite',
     disableTelemetry: true
   },
   framework: '@storybook/svelte',
