@@ -3,9 +3,16 @@ import netlify from '@sveltejs/adapter-netlify';
 import vercel from '@sveltejs/adapter-vercel';
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
+
 // import { resolve } from 'path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import assets from './assets.js';
+
+// Trying scss @import
+// import path, { dirname } from 'path';
+// import { fileURLToPath } from 'url';
+// const filePath = dirname(fileURLToPath(import.meta.url));
+// const sassPath = `${filePath}/src/lib/style/`;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

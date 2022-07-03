@@ -739,3 +739,15 @@ TODO: (when needed) Find a fix.
 ```bash
 pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```
+
+### Add UI : Framework7
+
+[Framework7 for Svelte](https://framework7.io/svelte/introduction.html)
+
+```bash
+pnpm install framework7 framework7-svelte
+```
+
+Insert code that loads the framework into `src/routes/__layout.svelte` (see source in repo).
+
+Add example page `src/routes/framework7/index.svelte` (see code in repo).
