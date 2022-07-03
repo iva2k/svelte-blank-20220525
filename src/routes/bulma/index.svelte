@@ -1,6 +1,7 @@
 <script lang="ts">
   let menuActive = false;
-  const onBurgerButton = () => {
+  const onBurgerButton = (e: Event) => {
+    e.preventDefault();
     menuActive = !menuActive;
   };
 </script>
