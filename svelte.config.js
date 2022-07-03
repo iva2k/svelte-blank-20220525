@@ -6,15 +6,19 @@ import preprocess from 'svelte-preprocess';
 // import { resolve } from 'path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import assets from './assets.js';
+import { optimizeImports } from 'carbon-preprocess-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: preprocess({
-    postcss: true,
-    scss: { includePaths: ['src', 'node_modules'] }
-  }),
+  preprocess: [
+    preprocess({
+      postcss: true,
+      scss: { includePaths: ['src', 'node_modules'] }
+    }),
+    optimizeImports()
+  ],
 
   kit: {
     adapter: process.env.VERCEL

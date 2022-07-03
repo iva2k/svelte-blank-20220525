@@ -53,6 +53,11 @@ specifiers:
   '@typescript-eslint/parser': ^5.30.0
   autoprefixer: ^10.4.7
   babel-loader: ^8.2.5
+  carbon-components: ^10.56.0
+  carbon-components-svelte: ^0.65.3
+  carbon-icons-svelte: ^11.1.0
+  carbon-pictograms-svelte: ^12.0.3
+  carbon-preprocess-svelte: ^0.9.0
   cookie: ^0.5.0
   cpy: ^9.0.1
   cross-env: ^7.0.3
@@ -148,6 +153,11 @@ devDependencies:
   '@typescript-eslint/parser': 5.30.0_b5e7v2qnwxfo6hmiq56u52mz3e
   autoprefixer: 10.4.7_postcss@8.4.14
   babel-loader: 8.2.5_fswvdo7jykdwhfxrdcvghfn6pa
+  carbon-components: 10.56.0
+  carbon-components-svelte: 0.65.3
+  carbon-icons-svelte: 11.1.0
+  carbon-pictograms-svelte: 12.0.3
+  carbon-preprocess-svelte: 0.9.0_mzolxz3pbbybldgvcoennqspvi
   cpy: 9.0.1
   cross-env: 7.0.3
   eslint: 8.18.0
@@ -1675,6 +1685,11 @@ packages:
     dependencies:
       '@capacitor/core': 3.6.0
     dev: false
+
+  /@carbon/telemetry/0.1.0:
+    resolution: {integrity: sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==}
+    hasBin: true
+    dev: true
 
   /@cnakazawa/watch/1.0.4:
     resolution: {integrity: sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==}
@@ -5809,6 +5824,50 @@ packages:
       rsvp: 4.8.5
     dev: true
 
+  /carbon-components-svelte/0.65.3:
+    resolution: {integrity: sha512-UP+DKdqj9R8fCePEcYfEpgzFg5A2MRxVe3hSIklKGOzEfESoObfD9ka+GBEBrH+m8QK4bcaV7yBVOwTWOp2o5g==}
+    dependencies:
+      flatpickr: 4.6.9
+    dev: true
+
+  /carbon-components/10.56.0:
+    resolution: {integrity: sha512-GPLqHiu2SWvMxcQOi/CcgA/XA3aX/5HiEPSQjLwzjKAJsnkpzq043Jf7QwgLOVbTBzGSjFbFkJnE2lc73I2WBw==}
+    requiresBuild: true
+    dependencies:
+      '@carbon/telemetry': 0.1.0
+      flatpickr: 4.6.1
+      lodash.debounce: 4.0.8
+      warning: 3.0.0
+    dev: true
+
+  /carbon-icons-svelte/11.1.0:
+    resolution: {integrity: sha512-yDA1aqgRCuDaY1moxYywKnkGak7rFc5U2n8/hrs8irmIpq9ebKmimLdMCVqZgV4kiZf2Udj/lkKOs/IzHixrnQ==}
+    dev: true
+
+  /carbon-pictograms-svelte/12.0.3:
+    resolution: {integrity: sha512-jSBoEMObzcmTgVdmfKmb4unfbxEQeFdG+117AbZt5X3JQDdB4Zj+ysUE8fbloyOYSKg3krkMf/QneCyozUyaFA==}
+    dev: true
+
+  /carbon-preprocess-svelte/0.9.0_mzolxz3pbbybldgvcoennqspvi:
+    resolution: {integrity: sha512-b55nsx6/qu1C7bVaDeoJ5lzhp9cPx083nkt9D+ZpjnCB04rJtcEV1QyP8HHRaHiyAcsJtLrQ/u/3Qo09UYluwQ==}
+    dependencies:
+      purgecss: 4.1.3
+      svelte-preprocess: 4.10.6_l5n4udzqmzgayagikkkj52xi4q
+      typescript: 4.6.4
+    transitivePeerDependencies:
+      - '@babel/core'
+      - coffeescript
+      - less
+      - node-sass
+      - postcss
+      - postcss-load-config
+      - pug
+      - sass
+      - stylus
+      - sugarss
+      - svelte
+    dev: true
+
   /case-sensitive-paths-webpack-plugin/2.4.0:
     resolution: {integrity: sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==}
     engines: {node: '>=4'}
@@ -7851,6 +7910,14 @@ packages:
     dependencies:
       flatted: 3.2.6
       rimraf: 3.0.2
+    dev: true
+
+  /flatpickr/4.6.1:
+    resolution: {integrity: sha512-3ULSxbXmcMIRzer/2jLNweoqHpwDvsjEawO2FUd9UFR8uPwLM+LruZcPDpuZStcEgbQKhuFOfXo4nYdGladSNw==}
+    dev: true
+
+  /flatpickr/4.6.9:
+    resolution: {integrity: sha512-F0azNNi8foVWKSF+8X+ZJzz8r9sE1G4hl06RyceIaLvyltKvDl6vqk9Lm/6AUUCi5HWaIjiUbk7UpeE/fOXOpw==}
     dev: true
 
   /flatted/2.0.2:
@@ -11392,6 +11459,16 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /purgecss/4.1.3:
+    resolution: {integrity: sha512-99cKy4s+VZoXnPxaoM23e5ABcP851nC2y2GROkkjS8eJaJtlciGavd7iYAw2V84WeBqggZ12l8ef44G99HmTaw==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+      glob: 7.2.3
+      postcss: 8.4.14
+      postcss-selector-parser: 6.0.10
+    dev: true
+
   /qs/6.10.3:
     resolution: {integrity: sha512-wr7M2E0OFRfIfJZjKGieI8lBKb7fRCH4Fv5KNPEs7gJ8jadvotdsS08PzOKR7opXhZ/Xkjtt3WF9g38drmyRqQ==}
     engines: {node: '>=0.6'}
@@ -13748,6 +13825,12 @@ packages:
     resolution: {integrity: sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==}
     dependencies:
       makeerror: 1.0.12
+    dev: true
+
+  /warning/3.0.0:
+    resolution: {integrity: sha512-jMBt6pUrKn5I+OGgtQ4YZLdhIeJmObddh6CsibPxyQ5yPZm1XExSyzC1LCNX7BzhxWgiHmizBWJTHJIjMjTQYQ==}
+    dependencies:
+      loose-envify: 1.4.0
     dev: true
 
   /watchpack-chokidar2/2.0.1:
