@@ -739,3 +739,15 @@ TODO: (when needed) Find a fix.
 ```bash
 pnpm install -D glob sass shx vite-plugin-static-copy cpy
 ```
+
+### Add UI : Shoelace
+
+[Shoelace](https://shoelace.style/)
+
+```bash
+pnpm install @shoelace-style/shoelace
+```
+
+Insert code that loads the framework and adds dark theme toggle into `src/routes/__layout.svelte` (see source in repo).
+
+Add example page `src/routes/shoelace/index.svelte` (see code in repo).
