@@ -11,11 +11,11 @@ Note: Vercel is not able to install and build this project (Vercel does not supp
 
 Built with:
 
-- [Svelte](https://svelte.dev) – UI framework
-- [Svelte Kit](https://kit.svelte.dev) – UI build system
-- [Tauri](https://tauri.studio) – Desktop Application framework
+- [Svelte](https://svelte.dev) - UI framework
+- [Svelte Kit](https://kit.svelte.dev) - UI build system
+- [Tauri](https://tauri.studio) - Desktop Application framework
 - [Capacitor](https://capacitorjs.com) - Building crossplatform apps
-- [Storybook](https://storybook.js.org) – Tool for building UI components and pages in isolation
+- [Storybook](https://storybook.js.org) - Tool for building UI components and pages in isolation
 - [Prettier](https://prettier.io/) - Opinionated Code Formatter
 - [ESLint](https://eslint.org) - Pluggable JavaScript linter
 - [Stylelint](https://stylelint.io/) - A mighty, modern CSS linter
@@ -114,7 +114,7 @@ There are many UI frameworks that work with Svelte / SvelteKit, and choice can b
 
 <https://sveltesociety.dev/components/>
 
-This project has few of the top frameworks integrated in separate git branches:
+This project has few of the top UI frameworks integrated in separate git branches:
 
 <!-- prettier-ignore -->
 | Git Branch | UI Framework | Dark Theme Switch | Notes |

@@ -1,5 +1,6 @@
 <script lang="ts">
-  import logo from './svelte-logo.svg';
+  // import logo from './svelte-logo.svg';
+  import logo from '$lib/images/svelte-logo.svg';
 
   export let pathname = '/';
 </script>
