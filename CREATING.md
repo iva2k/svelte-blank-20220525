@@ -180,7 +180,7 @@ For types, despite the Svelte-kit documentation stating that emitTypes is enable
 
 ### Remove Default Server
 
-For using Tauri (standalone app) - explicitly opt out of SvelteKit\'s assumption needing a server. Just attach the @sveltejs/adapter-static in `svelte.config.js`:
+For using Tauri (standalone app) - is supposed to explicitly opt out of SvelteKit\'s assumption needing a server. Just attach the @sveltejs/adapter-static in `svelte.config.js`:
 
 ```bash
 pnpm i -D @sveltejs/adapter-static
@@ -382,11 +382,13 @@ module.exports = {
 +    return config;
 +  },
   ...
-
 };
 ```
 
 #### Fix Issue #237 in @storybook/builder-vite, error looking for @mdx-js/react package
+
+See <https://github.com/storybookjs/builder-vite/issues/237>
+See <https://github.com/storybookjs/builder-vite/issues/55>
 
 ```js
 // .storybook/main.js
@@ -456,11 +458,11 @@ TODO: (blocked by upstream) Find a fix.
 
 ESLint and Prettier is already part of Svelte Kit installation, so some of the packages below are already present.
 
-#### Stylelint and additional ESLint rules (Storybook and import)
+#### Stylelint and additional ESLint rules (Storybook)
 
 ```bash
 pnpm install -D stylelint @ronilaukkarinen/stylelint-a11y stylelint-config-standard stylelint-config-recommended
-pnpm install -D eslint-plugin-import eslint-plugin-storybook
+pnpm install -D eslint-plugin-storybook
 ```
 
 Note: stylelint-a11y original creator / maintainer is AWOL, using an updated and maintained fork.
