@@ -229,6 +229,8 @@ pnpm run tauri init
 # What is the url of your dev server? - http://localhost:3000
 ```
 
+#### Set SPA mode
+
 Add `ssr:false` to `src/hooks.ts`:
 
 ```ts
@@ -342,7 +344,7 @@ npx rimraf src/stories
 
 #### Preprocess in .storybook/main.js
 
-It turned out that storybook `main.js` trying to import preprocess from `svelte.config.js` is not viable (import is async, returns Promis, and can't await in top-level .cjs files). The solution was to hard-code same preprocess in `.storybook/main.js` same as in `svelte.config.js`.
+It turned out that storybook `main.js` trying to import preprocess from `svelte.config.js` is not viable (import is async, returns Promise, and can't await in top-level .cjs files). The solution was to hard-code same preprocess in `.storybook/main.js` same as in `svelte.config.js`.
 
 ```js
 // .storybook/main.js
@@ -359,7 +361,7 @@ module.exports = {
 
 See <https://github.com/storybookjs/storybook/issues/14952>
 
-Add vite config to .storybook/main.cjs:
+Add vite config to .storybook/main.js:
 
 ```js
 module.exports = {
@@ -432,13 +434,15 @@ pnpm i -D cross-env
 
 TODO: (blocked by upstream) When there's a fix for node>17 and storybook / webpack@4, remove `NODE_OPTIONS=--openssl-legacy-provider` from `package.json`.
 
-#### \*.stories.svelte files
+#### Using \*.stories.svelte files
 
-Another open/unresolved issue is storybook's v6.5.3 storyStoreV7=true not parsing `.stories.svelte` files. And storyStoreV7=false does not load stories at all (no filed issues). So use only `.stories.tsx` for now.
+An open/unresolved issue is storybook's v6.5.3 storyStoreV7=true not parsing `.stories.svelte` files. And storyStoreV7=false does not load stories at all (no filed issues). So use only `.stories.tsx` for now.
 
 <https://github.com/storybookjs/storybook/issues/16673>
 
-Finally, got Storybook working with stories (.tsx, not .svelte) for Counter and Header (after reworking Header into Header + PureHeader). However, Counter.svelte has Typescript, and Storybook chokes on it, similar to this issue:
+At least, Storybook is working with stories (.tsx, not .svelte) for Counter and Header (after reworking Header into Header + PureHeader).
+
+ However, Counter.svelte has Typescript, and Storybook chokes on it, similar to this issue:
 
 <https://stackoverflow.com/questions/70681325/storybook-vite-svelte-typescript-typescript-not-being-processed-in-st>
 
@@ -453,6 +457,159 @@ pnpm svelte:build
 > @prefresh/core doesn't appear to be written in CJS, but also doesn't appear to be a valid ES module (i.e. it doesn't have "type": "module" or an .mjs extension for the entry point). Please contact the package author to fix
 
 TODO: (blocked by upstream) Find a fix.
+
+### Add @storybook/addon-a11y
+
+```bash
+pnpm i -D @storybook/addon-a11y
+```
+
+```js
+module.exports = {
+  ...
+  addons: [
+    ...
++   '@storybook/addon-a11y'
+  ]
+```
+
+### Add Storybook App Theme Switcher Addon
+
+There's a default Storybook theming addon: `@storybook/theming`. It allows control over theming of all parts of Storybook app (UI, docs, preview), but it won't affect the components preview.
+
+To add custom theme to Storybook app, create file .storybook/manager.js and .storybook/YourTheme.js with the following code:
+
+```js
+// .storybook/manager.js
+import { addons } from '@storybook/addons';
+// import { themes } from '@storybook/theming';
+import yourTheme from './YourTheme';
+addons.setConfig({
+  // theme: themes.dark
+  theme: yourTheme
+});
+```
+
+```js
+// .storybook/YourTheme.js
+import { create } from '@storybook/theming';
+
+export default create({
+  // base: 'light',
+  base: 'dark',
+  brandTitle: 'My custom storybook',
+  brandUrl: 'https://example.com',
+  brandImage: 'https://place-hold.it/350x150',
+  brandTarget: '_self'
+
+  colorPrimary: 'hotpink',
+  colorSecondary: 'deepskyblue',
+
+  // UI
+  appBg: 'white',
+  appContentBg: 'silver',
+  appBorderColor: 'grey',
+  appBorderRadius: 4,
+
+  // Typography
+  fontBase: '"Open Sans", sans-serif',
+  fontCode: 'monospace',
+
+  // Text colors
+  textColor: 'black',
+  textInverseColor: 'rgba(255,255,255,0.9)',
+
+  // Toolbar default and active colors
+  barTextColor: 'silver',
+  barSelectedColor: 'black',
+  barBg: 'hotpink',
+
+  // Form colors
+  inputBg: 'white',
+  inputBorder: 'silver',
+  inputTextColor: 'black',
+  inputBorderRadius: 4
+});
+```
+
+The above will not affect Storybook docs, which have their own theme. To change that, modify .storybook/preview.js:
+
+```js
+// .storybook/preview.js
++ // import { themes } from '@storybook/theming';
++ import yourTheme from './YourTheme';
+export const parameters = {
++  // for '@storybook/theming':
++  docs: {
++    // theme: themes.dark
++    theme: yourTheme
++  },
+  ...
+};
+```
+
+### Add Storybook Theme Switcher Addon
+
+To change themes in Storybook component previews, use an addon [Theme Switcher addon](https://storybook.js.org/addons/storybook-addon-themes). It can coexist with `@storybook/theming`, though will show two identical icons on the toolbar with different menus.
+
+```bash
+pnpm i -D storybook-addon-themes
+```
+
+Add plugin to Storybook:
+
+```js
+// .storybook/main.js
+
+module.exports = {
+  ...
+  addons: [
+    ...
++    'storybook-addon-themes'
+  ],
+  ...
+```
+
+Add themes list:
+
+```js
+// .storybook/preview.js
+
+export const parameters = {
+   ...
++  themes: {
++    default: 'twitter',
++    list: [
++      { name: 'twitter', class: 'theme-twt', color: '#00aced' },
++      { name: 'facebook', class: 'theme-fb', color: '#3b5998' }
++    ]
++  }
+};
+```
+
+The theme only changes class on the root element (which can be chosen to differ from the default \<body\> tag). The actual theme should be provided and can match app theme.
+
+It is possible to load the app theme in .storybook/preview.js, just add the CSS file:
+
+```js
+// .storybook/preview.js
++ import '../src/app.css';
+```
+
+### Publish Storybook on Chromatic
+
+Login to [www.chromatic.com](https://www.chromatic.com) and setup yor project, get [YOUR_TOKEN]. Then connect:
+
+```bash
+pnpm i -D chromatic
+npx chromatic --build-script-name=storybook:build --project-token=[YOUR_TOKEN]
+```
+
+Also add project token to the Github repo, see <https://www.chromatic.com/docs/github-actions>:
+
+Go to Settings > Secrets > Actions Secrets > New Repository Secret, then enter Name - CHROMATIC_PROJECT_TOKEN and Secret - [YOUR_TOKEN].
+
+Create file '.github/workflows/chromatic.yml' (see contents in sources).
 
 ### Add Prettier & ESLint Rules, Stylelint, Postcss and Autoprefixer
 
@@ -599,14 +756,14 @@ pnpm install -D glob sass shx vite-plugin-static-copy cpy
 
 Capcitor has 2 largely independent parts that we could use:
 
-1. Plugins to use native functionality
+1. Plugins to use native functionality on various platforms
 2. Build apps for mobile platforms - iOS, Android
 
 Use of native functionality (like Camera, GPS, etc.) can be very handy for some apps.
 
 Since Tauri has no iOS/Andoid support (it's in development), we can use Capacitor to bridge that gap.
 
-We will target QR code scanning as a very usefull feature.
+We will target QR code scanning as a very usefull feature for #1.
 
 #### Setup
 
@@ -625,7 +782,7 @@ Add Capacitor to the project:
 ```bash
 pnpm install @capacitor/core
 pnpm install -D @capacitor/cli
-# use npx vs. pnpx with cap as pnpx won't run cap (o call cap directly, without npx):
+# use npx vs. pnpx with cap as pnpx won't run cap (or call cap directly, without npx):
 npx cap init svelte-blank-20220525 com.iva2k.svelteblank20220525 --web-dir=build
 ```
 
@@ -689,7 +846,7 @@ Create `src/routes/geolocation.svelte`:
 </div>
 ```
 
-And add the page to the header links:
+Add the page to the PureHeader links:
 
 ```js
 <header>
@@ -698,12 +855,23 @@ And add the page to the header links:
     ...
     <ul>
       ...
-      <li class:active={pathname === '/todos'}>
-        <a sveltekit:prefetch href="/todos">Todos</a>
-      </li>
 +      <li class:active={pathname === '/geolocation'}>
 +        <a sveltekit:prefetch href="/geolocation">Geolocation</a>
 +      </li>
+        ...
+```
+
+Add option to PureHeader.stories.tsx:
+
+```tsx
+export default {
+  ...
+  argTypes: {
+    pathname: {
+-      options: ['/', '/about'],
++      options: ['/', '/about', '/geolocation'],
+    ...
+```
 ```
 
 #### Add QR Code Scanner
@@ -727,7 +895,7 @@ Create `src/routes/qrscanner.svelte`:
 // See src/routes/qrscanner.svelte file in repo
 ```
 
-Add the page to the header links:
+Add the page to the PureHeader links:
 
 ```js
 <header>
@@ -737,8 +905,48 @@ Add the page to the header links:
     <ul>
       ...
 +      <li class:active={pathname === '/qrscanner'}>
-+        <a sveltekit:prefetch href="/qrscanner">Geolocation</a>
++        <a sveltekit:prefetch href="/qrscanner">QR Scanner</a>
 +      </li>
+```
+
+Add option to PureHeader.stories.tsx:
+
+```tsx
+export default {
+  ...
+  argTypes: {
+    pathname: {
+-      options: ['/', '/about', '/geolocation'],
++      options: ['/', '/about', '/geolocation', 'qrscanner'],
+    ...
+```
+
+
+```xml
+<manifest
+  xmlns:android="http://schemas.android.com/apk/res/android"
++  xmlns:tools="http://schemas.android.com/tools"
+  package="com.example">
+
+  <application
+    ...
++    android:hardwareAccelerated="true"
+  >
+  </application>
+  ...
++  <!-- QR Scanner -->
++  <uses-permission android:name="android.permission.CAMERA" />
++  <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+</manifest>
+```
+
+For iOS, add usage description to "ios/App/App/Info.plist" file:
+
+```xml
+<dict>
++  <key>NSCameraUsageDescription</key>
++  <string>To be able to scan barcodes</string>
+</dict>
 ```
 
 #### Using PWA Elements
@@ -757,6 +965,11 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 ReactDOM.render(<App />, document.getElementById('root'));
 // Call the element loader after the app has been rendered the first time
 defineCustomElements(window);
+
+// Something like this in src/routes/+layout.svelte:<script>:
+onMounted(async () => {
+  await defineCustomElements(window);
+});
 ```
 
 #### Interesting Capacitor Community Plugins

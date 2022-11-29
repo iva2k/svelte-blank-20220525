@@ -3,9 +3,9 @@
 A cross-platform Desktop / Mobile / Web application starter.
 
 <!-- prettier-ignore -->
-| [![Netlify Status](https://api.netlify.com/api/v1/badges/8a3028e8-f005-4617-9190-f54092b6e9c3/deploy-status)](https://app.netlify.com/sites/svelte-blank-20220525/deploys) |  [![Vercel Status](https://shields.io/github/deployments/iva2k/svelte-blank-20220525/production?style=flat&label=vercel&logo=vercel)](https://vercel.com/iva2k/svelte-blank-20220525) |
-|:-:|:-:|
-| [App Demo](https://svelte-blank-20220525.netlify.app) |  |
+|Storybook| [![Netlify Status](https://api.netlify.com/api/v1/badges/8a3028e8-f005-4617-9190-f54092b6e9c3/deploy-status)](https://app.netlify.com/sites/svelte-blank-20220525/deploys) |  [![Vercel Status](https://shields.io/github/deployments/iva2k/svelte-blank-20220525/production?style=flat&label=vercel&logo=vercel)](https://vercel.com/iva2k/svelte-blank-20220525) |
+|:-:|:-:|:-:|
+|| [App Demo](https://svelte-blank-20220525.netlify.app) |  |
 
 Note: Vercel is not able to install and build this project (Vercel does not support Node 18 yet).
 
@@ -20,6 +20,10 @@ Built with:
 - [ESLint](https://eslint.org) - Pluggable JavaScript linter
 - [Stylelint](https://stylelint.io/) - A mighty, modern CSS linter
 - [Postcss](https://postcss.org/) - Transforming styles with JS plugins
+
+Continuous Integrations:
+
+- [Chromatic](https://www.chromatic.com) - Storybook Github CI
 
 ## Install
 
