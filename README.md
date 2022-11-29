@@ -1,6 +1,10 @@
-# Blank SvelteKit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
+# Blank SvelteKit App
+
+## + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
 
 A cross-platform Desktop / Mobile / Web application starter.
+
+ATTENTION! This Repo is obsoleted and will be deleted. This app has moved to latest [iva2k/svelte-blank-20220525](https://github.com/iva2k/svelte-blank-20221125).
 
 <!-- prettier-ignore -->
 |Storybook| [![Netlify Status](https://api.netlify.com/api/v1/badges/8a3028e8-f005-4617-9190-f54092b6e9c3/deploy-status)](https://app.netlify.com/sites/svelte-blank-20220525/deploys) |  [![Vercel Status](https://shields.io/github/deployments/iva2k/svelte-blank-20220525/production?style=flat&label=vercel&logo=vercel)](https://vercel.com/iva2k/svelte-blank-20220525) |

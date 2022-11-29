@@ -1,4 +1,6 @@
-# Creating: Blank SvelteKit App + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
+# Creating: Blank SvelteKit App
+
+## + Tauri + Capacitor + Storybook + Prettier + ESLint + Stylelint + Postcss
 
 This file describes how this app was created.
 
@@ -442,7 +444,7 @@ An open/unresolved issue is storybook's v6.5.3 storyStoreV7=true not parsing `.s
 
 At least, Storybook is working with stories (.tsx, not .svelte) for Counter and Header (after reworking Header into Header + PureHeader).
 
- However, Counter.svelte has Typescript, and Storybook chokes on it, similar to this issue:
+However, Counter.svelte has Typescript, and Storybook chokes on it, similar to this issue:
 
 <https://stackoverflow.com/questions/70681325/storybook-vite-svelte-typescript-typescript-not-being-processed-in-st>
 
@@ -872,7 +874,8 @@ export default {
 +      options: ['/', '/about', '/geolocation'],
     ...
 ```
-```
+
+````
 
 #### Add QR Code Scanner
 
@@ -887,7 +890,7 @@ The elements are made transparent by adding `background: 'transparent';` in the 
 ```bash
 pnpm install @capacitor-community/barcode-scanner
 npx cap sync
-```
+````
 
 Create `src/routes/qrscanner.svelte`:
 
@@ -920,7 +923,6 @@ export default {
 +      options: ['/', '/about', '/geolocation', 'qrscanner'],
     ...
 ```
-
 
 ```xml
 <manifest
@@ -960,16 +962,18 @@ pnpm install @ionic/pwa-elements
 A typical installation involves importing the package and registering the elements, or adding a script tag to the \<head\> of the index.html for the app
 
 ```js
-// TODO: (when needed) Convert this code snippet from React to Svelte/Svelte-kit. Somehow it should get into .svelte-kit/**/start.js
-import { defineCustomElements } from '@ionic/pwa-elements/loader';
-ReactDOM.render(<App />, document.getElementById('root'));
-// Call the element loader after the app has been rendered the first time
-defineCustomElements(window);
+// src/routes/+layout.svelte
+<script>
+  ...
++  import { onMount } from 'svelte';
++  // import { defineCustomElements } from '@ionic/pwa-elements/loader'; // Broken -> Directory import '...' is not supported resolving ES modules
++  // Use a hack to import:
++  import loader from '@ionic/pwa-elements/loader/index.cjs.js';
 
-// Something like this in src/routes/+layout.svelte:<script>:
-onMounted(async () => {
-  await defineCustomElements(window);
-});
++  onMount(async () => {
++    await loader.defineCustomElements(window);
++  });
+  ...
 ```
 
 #### Interesting Capacitor Community Plugins
