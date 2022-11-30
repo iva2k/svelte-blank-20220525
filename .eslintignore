@@ -7,8 +7,11 @@ node_modules
 .env
 .env.*
 !.env.example
+.netlify
 .vercel
 .output
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
 .types
 log.*
 *.log
@@ -18,7 +21,9 @@ test-results.json
 /src-tauri/WixTools
 /src-tauri/Cargo.lock
 /playwright-report
+/coverage
 /android
+/ios
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml
