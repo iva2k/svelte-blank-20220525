@@ -1087,6 +1087,8 @@ A typical installation involves importing the package and registering the elemen
 
 #### Fix Issues With Capacitor
 
+None to fix.
+
 ##### Error in `pnpm run dev:android`
 
 > ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.

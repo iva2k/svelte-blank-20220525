@@ -27,6 +27,7 @@ const config = {
           // assets: 'build',
           // fallback: null,
           // precompress: false
+          fallback: 'index.html'
         }),
 
     package: {
@@ -35,7 +36,7 @@ const config = {
 
     prerender: {
       // This can be false when using a fallback (i.e. SPA mode)
-      default: true
+      default: 'auto'
     },
 
     // Override http methods in the Todo forms
